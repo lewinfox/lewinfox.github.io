@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Lewin Appleton-Fox</title>
+    <link>https://lewinfox.github.io/categories/</link>
+    <description>Recent content in Categories on Lewin Appleton-Fox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>© {year}</copyright><atom:link href="https://lewinfox.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

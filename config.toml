@@ -13,6 +13,8 @@ copyright = "© {year}"
 # Add your Google Analytics identifier: UA-XXXXXXXX-X
 googleAnalytics = "UA-175532619-1"
 
+publishDir = "docs"
+
 # Optional params
 [params]
   # Follow the Hugo date/time format reference here:

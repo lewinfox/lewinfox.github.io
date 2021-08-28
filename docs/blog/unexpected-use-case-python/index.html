@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+  <title>An unexpected use case for Python | Lewin Appleton-Fox</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="python , scraping">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.86d1effd4c412b85ac13db53a90c473a0f256f789b821e131125c9aa25cb6a6d.css" integrity="sha256-htHv/UxBK4WsE9tTqQxHOg8lb3ibgh4TESXJqiXLam0="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/lewinfox.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "An unexpected use case for Python",
+      "headline" : "An unexpected use case for Python",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-07-18 10:31:00 \u002b1200 NZST",
+      "dateModified" : "2020-07-18 10:31:00 \u002b1200 NZST",
+      "url" : "https:\/\/lewinfox.github.io\/blog\/unexpected-use-case-python\/",
+      "wordCount" : "641",
+      "keywords" : ["python", "scraping", "Blog"]
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-175532619-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/projects">projects</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">An unexpected use case for Python</h1>
+            <time datetime="2020-07-18 10:31:00 &#43;1200 NZST" class="post__date">18 Jul 2020</time> 
+          </header>
+          <article class="post__content">
+              
+<p>My partner recently discovered that her blog had been hacked (some time ago) due to a <a href="https://nakedsecurity.sophos.com/2018/11/13/wordpress-gdpr-compliance-plugin-hacked/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>vulnerability in a WordPress plugin</a>.</p>
+<p>Fortunately the damage was minimal - the attacker had just shoehorned a load of affiliate links into some of her older posts. The attacker had made an effort to incorporate the links with her existing content, which meant that she needed to read through ALL her old posts to identify and remove the links by hand.</p>
+<p>I thought this was an interesting challenge - could I write something to help her pick out these bogus links? I usually work in R, but I ran through a web scraping tutorial in Python a few years ago and decided to dust off those skills.</p>
+<p>I used a Jupyter notebook so there was a nice quick feedback loop, which was handy for the exploratory phase.</p>
+<p>First, some imports:</p>
+<pre><code class="language-python">import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
+import pandas as pd
+import lxml
+</code></pre>
+<p>Then I grabbed the sitemap and parsed it into a navigable object with <code>BeautifulSoup</code>:</p>
+<pre><code class="language-python">sitemap_url = &quot;http://the-blog.com/post-sitemap.xml&quot;
+sitemap_xml = requests.get(sitemap_url).text
+sitemap_soup = BeautifulSoup(sitemap_xml, &quot;xml&quot;)
+</code></pre>
+<p>I wasn&rsquo;t familiar with the structure of a sitemap, so I needed to read through it to identify the structures that contain blog post links.</p>
+<pre><code>&lt;url&gt;
+  &lt;loc&gt;http://the-blog.com/post-title/&lt;/loc&gt;
+  &lt;lastmod&gt;2018-06-29T08:47:18+00:00&lt;/lastmod&gt;
+  &lt;image:image&gt;
+    &lt;image:loc&gt;https://some-cdn.net/big-long-url&lt;/image:loc&gt;
+    &lt;image:title&gt;Some stuff&lt;/image:title&gt;
+    &lt;image:caption&gt;Some more stuff&lt;/image:caption&gt;
+  &lt;/image:image&gt;
+&lt;/url&gt;
+</code></pre>
+<p>Cool, so it looks like we need these <code>&lt;loc&gt;&lt;\loc&gt;</code> tags.</p>
+<pre><code class="language-python">tag_list = sitemap_soup.find_all(&quot;loc&quot;)
+</code></pre>
+<p>The <code>tag_list</code> object now contains all the nodes matching <code>loc</code>, which also included <code>&lt;image:loc&gt;</code> entries - I don&rsquo;t want these. Fortunately this is an easy fix with a list comprehension:</p>
+<pre><code class="language-python">url_list = [
+    tag.getText() for tag in tag_list 
+    if not &quot;image&quot; in tag.getText()
+    ]
+</code></pre>
+<p>At this point I had a nice clean list of URLs:</p>
+<pre><code class="language-python">['http://the-blog.com/',
+ 'http://the-blog.com/the-handmade-fair-wiltshire-press-launch/',
+ 'http://the-blog.com/bits-pieces-may-favourites/',
+ # ...
+]
+</code></pre>
+<p>At this point I had to think about how to flag potentially bogus links. I made the assumption that each bogus domain was unlikely to have been linked to more than once or twice, so I wanted to get a count of the unique domains (e.g. instagram.com, facebook.com) linked to, then filter out those that occurred more than once.</p>
+<p>I wrote this function which:</p>
+<ul>
+<li>Downloads each URL</li>
+<li>Extracts all the anchor tags</li>
+<li>Grabs the link text, url and domain (<code>netloc</code>) from each URL</li>
+<li>Creates an object containing that info and appends it to an output list</li>
+<li>Returns the list</li>
+</ul>
+<pre><code class="language-python">def get_links(urls):
+    res = []
+    for url in urls:
+        html = requests.get(url).text
+        soup = BeautifulSoup(html)
+        for link in soup.find_all(&quot;a&quot;):
+            href = str(link[&quot;href&quot;])
+            text = str(link.getText())
+            domain = urlparse(href).netloc
+            res.append({
+                &quot;page&quot;: url,
+                &quot;link_domain&quot;: domain,
+                &quot;link_text&quot;: text
+            })
+    return res
+</code></pre>
+<p>The object returned from this function can then be converted directly to a Pandas <code>DataFrame</code>.</p>
+<pre><code class="language-python">link_table = pd.DataFrame(get_links(url_list))
+</code></pre>
+<p>This took a little while to run - to give you an idea of the size of the data the first ten pages contained over 1,500 URLs. Most of these were sidebars, images etc. rather than the links we were looking for.</p>
+<p>At this point the dataset looked something like this:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><code>page</code></th>
+<th style="text-align:left"><code>link_domain</code></th>
+<th style="text-align:left"><code>link_text</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://the-blog.com/some-post" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>http://the-blog.com/some-post</a></td>
+<td style="text-align:left"><a href="http://www.instagram.com" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>www.instagram.com</a></td>
+<td style="text-align:left">A few shots from a recent walk</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://the-blog.com/some-other-post" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>http://the-blog.com/some-other-post</a></td>
+<td style="text-align:left"><a href="http://www.instagram.com" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>www.instagram.com</a></td>
+<td style="text-align:left">Sunny lake Tekapo</td>
+</tr>
+<tr>
+<td style="text-align:left">&hellip; many more rows</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>At this point I identified the domains that only appeared once, and filtered the result set to only include those domains.</p>
+<pre><code class="language-python">counts_df = link_table.groupby(&quot;link_domain&quot;).count()
+one_shots = counts_df[counts_df[&quot;link_text&quot;] == 1].index.tolist()
+link_table = link_table[link_table[&quot;link_domain&quot;].isin(one_shots)]
+</code></pre>
+<p>I ended up iterating on this a bit, including whitelisting some domains to cut down the size of the data. In the end we identified just over 100 domains that only had a single outgoing link, many of which did indeed prove to be fakes!</p>
+<p>I enjoyed hacking on this for an evening, and it did end up helping my partner identify some links that weren&rsquo;t obvious the first time round. It was a fun little project, and an unexpected application of some old knowledge.</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://lewinfox.github.io/tags/python/">python</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+
+  
+    <a class="pagination__item" href="https://lewinfox.github.io/blog/r-method-dispatch/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Method dispatch in R - a letter to my younger self</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="GitHub"
+        href="https://www.github.com/lewinfox"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://lewinfox.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="Email"
+        href="mailto:lewin.a.f@gmail.com"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://lewinfox.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/lewinappletonfox"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://lewinfox.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>

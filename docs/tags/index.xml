@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Lewin Appleton-Fox</title>
+    <link>https://lewinfox.github.io/tags/</link>
+    <description>Recent content in Tags on Lewin Appleton-Fox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sat, 10 Oct 2020 17:33:04 +1200</lastBuildDate><atom:link href="https://lewinfox.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R</title>
+      <link>https://lewinfox.github.io/tags/r/</link>
+      <pubDate>Sat, 10 Oct 2020 17:33:04 +1200</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rcpp</title>
+      <link>https://lewinfox.github.io/tags/rcpp/</link>
+      <pubDate>Sat, 10 Oct 2020 17:33:04 +1200</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/rcpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>https://lewinfox.github.io/tags/tutorials/</link>
+      <pubDate>Sat, 10 Oct 2020 17:33:04 +1200</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/tutorials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://lewinfox.github.io/tags/python/</link>
+      <pubDate>Sat, 18 Jul 2020 10:31:00 +1200</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
