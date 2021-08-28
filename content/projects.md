@@ -25,3 +25,6 @@ Richard M. Stallman.
 
 [`foodwebr`](https://github.com/lewinfox/foodwebr) helps you draw function dependency graphs in R.
 
+### `lambdar`
+
+[`lambdar`](https://lewinfox.github.io/lambdar) helps you write AWS Lambda functions in R.
