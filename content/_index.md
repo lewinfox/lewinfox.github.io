@@ -1,5 +1,5 @@
 ---
 heading: "Lewin Appleton-Fox"
-subheading: "Programmer and data geek"
-text: "Wellington, NZ"
+subheading: "Data Engineering, Python and R"
+text: Wellington, NZ  
 ---
