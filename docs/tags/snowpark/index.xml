@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Lewin Appleton-Fox</title>
-    <link>https://lewinfox.github.io/tags/python/</link>
-    <description>Recent content in python on Lewin Appleton-Fox</description>
+    <title>snowpark on Lewin Appleton-Fox</title>
+    <link>https://lewinfox.github.io/tags/snowpark/</link>
+    <description>Recent content in snowpark on Lewin Appleton-Fox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Tue, 20 Dec 2022 19:24:21 +1300</lastBuildDate><atom:link href="https://lewinfox.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Dec 2022 19:24:21 +1300</lastBuildDate><atom:link href="https://lewinfox.github.io/tags/snowpark/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to deploy Snowflake stored procedures with Python</title>
       <link>https://lewinfox.github.io/blog/deploy-snowflake-stored-procedures-python/</link>
@@ -17,16 +17,6 @@
       <description>This post walks through an example of deploying a Snowflake stored procedure using the Snowpark Python library.
 Most of the examples online (including in the official documentation) assume you&amp;rsquo;re doing this via a SnowSQL session. This guide assumes you want to have a deployment script to make the process automatable via GitHub Actions or your CI/CD tool of choice.
 Setup We&amp;rsquo;ll be using the snowflake-snowpark-python library to deploy our procedure. At the time of writing (December 2022) this only works with Python 3.</description>
-    </item>
-    
-    <item>
-      <title>An unexpected use case for Python</title>
-      <link>https://lewinfox.github.io/blog/unexpected-use-case-python/</link>
-      <pubDate>Sat, 18 Jul 2020 10:31:00 +1200</pubDate>
-      
-      <guid>https://lewinfox.github.io/blog/unexpected-use-case-python/</guid>
-      <description>My partner recently discovered that her blog had been hacked (some time ago) due to a vulnerability in a WordPress plugin.
-Fortunately the damage was minimal - the attacker had just shoehorned a load of affiliate links into some of her older posts. The attacker had made an effort to incorporate the links with her existing content, which meant that she needed to read through ALL her old posts to identify and remove the links by hand.</description>
     </item>
     
   </channel>

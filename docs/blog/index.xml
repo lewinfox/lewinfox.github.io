@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sat, 10 Oct 2020 17:33:04 +1200</lastBuildDate><atom:link href="https://lewinfox.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Dec 2022 19:24:21 +1300</lastBuildDate><atom:link href="https://lewinfox.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to deploy Snowflake stored procedures with Python</title>
+      <link>https://lewinfox.github.io/blog/deploy-snowflake-stored-procedures-python/</link>
+      <pubDate>Tue, 20 Dec 2022 19:24:21 +1300</pubDate>
+      
+      <guid>https://lewinfox.github.io/blog/deploy-snowflake-stored-procedures-python/</guid>
+      <description>This post walks through an example of deploying a Snowflake stored procedure using the Snowpark Python library.
+Most of the examples online (including in the official documentation) assume you&amp;rsquo;re doing this via a SnowSQL session. This guide assumes you want to have a deployment script to make the process automatable via GitHub Actions or your CI/CD tool of choice.
+Setup We&amp;rsquo;ll be using the snowflake-snowpark-python library to deploy our procedure. At the time of writing (December 2022) this only works with Python 3.</description>
+    </item>
+    
     <item>
       <title>How to iterate over an Rcpp DateVector (with example)</title>
       <link>https://lewinfox.github.io/blog/iterate-over-rcpp-datevector-example/</link>

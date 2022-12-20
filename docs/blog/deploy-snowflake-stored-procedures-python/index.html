@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+  <title>How to deploy Snowflake stored procedures with Python | Lewin Appleton-Fox</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="How to deploy Snowflake stored procedures using Python">
+  <meta name="keywords" content="snowflake , snowpark , python , tutorial">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.86d1effd4c412b85ac13db53a90c473a0f256f789b821e131125c9aa25cb6a6d.css" integrity="sha256-htHv/UxBK4WsE9tTqQxHOg8lb3ibgh4TESXJqiXLam0="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/lewinfox.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "How to deploy Snowflake stored procedures with Python",
+      "headline" : "How to deploy Snowflake stored procedures with Python",
+      "description" : "How to deploy Snowflake stored procedures using Python",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2022",
+      "datePublished": "2022-12-20 19:24:21 \u002b1300 NZDT",
+      "dateModified" : "2022-12-20 19:24:21 \u002b1300 NZDT",
+      "url" : "https:\/\/lewinfox.github.io\/blog\/deploy-snowflake-stored-procedures-python\/",
+      "wordCount" : "752",
+      "keywords" : ["snowflake", "snowpark", "python", "tutorial", "Blog"]
+    }
+  
+  </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-175532619-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/projects">projects</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">How to deploy Snowflake stored procedures with Python</h1>
+            <time datetime="2022-12-20 19:24:21 &#43;1300 NZDT" class="post__date">20 Dec 2022</time> 
+          </header>
+          <article class="post__content">
+              
+<p>This post walks through an example of deploying a
+<a href="https://docs.snowflake.com/en/sql-reference/stored-procedures.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Snowflake stored procedure</a>
+using the
+<a href="https://docs.snowflake.com/en/developer-guide/snowpark/python/index.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Snowpark Python library</a>.</p>
+<p>Most of the examples online (including in the official
+documentation) assume you&rsquo;re doing this via a SnowSQL session.
+This guide assumes you want to have a deployment script to make
+the process automatable via GitHub Actions or your CI/CD tool of
+choice.</p>
+<h2 id="setup">Setup<a class="anchor" href="#setup">#</a></h2>
+<p>We&rsquo;ll be using the <code>snowflake-snowpark-python</code> library to deploy
+our procedure. At the time of writing (December 2022) this only
+works with Python 3.8. If you&rsquo;re using
+<a href="https://www.anaconda.com/" 
+  
+   target="_blank" rel="noreferrer noopener" 
+><code>conda</code></a> you can create a virtual
+environment using Python 3.8 with the Snowpark library
+installed as follows:</p>
+<pre><code class="language-shell">conda create --name my_env snowflake-snowpark-python python=3.8
+</code></pre>
+<h2 id="creating-a-single-file-python-function">Creating a single-file Python function<a class="anchor" href="#creating-a-single-file-python-function">#</a></h2>
+<p>First we need a Python function that will become our stored
+procedure. I&rsquo;m using a simple <code>add_one()</code> function as an
+example, saved in a file called <code>main.py</code>.</p>
+<pre><code class="language-python"># main.py
+from snowflake.snowpark import Session
+
+def add_one(session: Session, x: int) -&gt; int:
+    &quot;&quot;&quot;Add one to an integer&quot;&quot;&quot;
+    return x + 1
+</code></pre>
+<p>Some things to note here:</p>
+<ol>
+<li>
+<p>We&rsquo;re using <a href="https://docs.python.org/3.8/library/typing.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>type hints</a>.
+This makes life easier later on as Snowpark will use these to
+generate the appropriate input and return types for the
+function. More on this later.</p>
+</li>
+<li>
+<p>The first argument to the function <em>must</em> be a
+<a href="https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/session.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+><code>snowflake.snowpark.Session</code></a>
+object, even if we don&rsquo;t do anything with it in the function
+itself. When we call the generated stored procedure the
+<code>Session</code> will be automatically supplied by the Snowflake
+runtime, i.e. our SQL call will look like:</p>
+<pre><code class="language-sql">CALL ADD_ONE(1)
+</code></pre>
+<p>If the first argument to your function isn&rsquo;t a <code>Session</code>
+object, Snowpark will throw an error when you try and deploy.</p>
+</li>
+</ol>
+<h2 id="writing-a-deployment-script">Writing a deployment script<a class="anchor" href="#writing-a-deployment-script">#</a></h2>
+<p>The Snowpark API provides a
+<a href="https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/api/snowflake.snowpark.stored_procedure.StoredProcedureRegistration.register_from_file.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+><code>register_from_file()</code></a>
+function that we can use to deploy our procedure. Here&rsquo;s a super
+simple deployment script.</p>
+<p>For information on connecting to Snowflake see
+<a href="https://docs.snowflake.com/en/developer-guide/snowpark/reference/python/api/snowflake.snowpark.Session.html#snowflake.snowpark.Session" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>the Snowpark docs</a>.</p>
+<pre><code class="language-python"># deploy.py
+from snowflake.snowpark import Session
+
+# Connection parameters shouldn't be hard-coded into the script 
+# like this. Use environment variables, GitHub Actions secrets, 
+# etc.
+SF_CONNECTION_PARAMS = {
+    &quot;account&quot;: &quot;my.snowflake.account&quot;,
+    &quot;user&quot;: &quot;me@email.com&quot;,
+    &quot;password&quot;: &quot;password123&quot;,
+    &quot;warehouse&quot;: &quot;my_warehouse&quot;,
+    &quot;role&quot;: &quot;my_role&quot;,
+    &quot;database&quot;: &quot;my_database&quot;,
+    &quot;schema&quot;: &quot;my_schema&quot;
+}
+
+# Create a session that we will use to deploy our proc
+session = Session.builder.configs(SF_CONNECTION_PARAMS).create()
+
+# Create a Snowflake stage to hold the uploaded Python source
+# files
+session.sql(
+    &quot;CREATE STAGE IF NOT EXISTS PYTHON_SOURCE_CODE&quot;
+).collect()
+
+# Deploy the procedure
+session.sproc.register_from_file(
+    name = &quot;add_one&quot;, # Name of the procedure in Snowflake
+    stage_location = &quot;python_source_code&quot;,
+    file_path = &quot;main.py&quot;,
+    func_name = &quot;add_one&quot;, # Within `main.py`
+    is_permanent = True,
+    replace = True,
+    packages = [&quot;snowflake-snowpark-python&quot;]
+)
+
+</code></pre>
+<p>Running <code>python deploy.py</code> will deploy the stored procedure.</p>
+<h3 id="notes">Notes<a class="anchor" href="#notes">#</a></h3>
+<ul>
+<li><code>name</code> is the name of the deployed procedure in Snowflake.
+This doesn&rsquo;t have to be the same as the name of the function.</li>
+<li><code>is_permanent</code> should be <code>True</code>. If left as <code>False</code> the
+procedure will only exist for the duration of the <code>session</code>
+used to deploy it, i.e. it won&rsquo;t be useable once the
+deployment script has run.</li>
+<li><code>replace = True</code> means that any pre-existing procedure with
+this name will be replaced. If this is <code>False</code> then trying to
+deploy a procedure whose name already exists will cause an
+error.</li>
+<li><code>packages</code> <em>must</em> contain <code>snowflake-snowpark-python</code> even if
+you&rsquo;re only using Python standard library packages.</li>
+<li>If we hadn&rsquo;t included type hints in our source code we&rsquo;d also
+need to supply <code>input_types</code> and <code>return_type</code> arguments to
+<code>deploy_from_file()</code>.</li>
+</ul>
+<h2 id="using-multiple-python-files">Using multiple Python files<a class="anchor" href="#using-multiple-python-files">#</a></h2>
+<p>If your Python code is split over multiple files you need to
+tell Snowpark which files need to be included in the deployment
+package. For example, if I have a custom module containing some
+application code:</p>
+<pre><code class="language-python"># my_module.py
+
+def greater_than_ten(x: int) -&gt; bool:
+    &quot;&quot;&quot;Is a number greater than ten?&quot;&quot;&quot;
+    if x &gt; 10:
+        return True
+    
+    return False
+</code></pre>
+<p>and I want to import this module into my main procedure code:</p>
+<pre><code class="language-python"># main.py
+from snowflake.snowpark import Session
+
+import my_module
+
+def sometimes_add_one(session: Session: x: int) -&gt; int:
+    &quot;&quot;&quot;Add one to integers that are greater than ten&quot;&quot;&quot;
+    if my_module.greater_than_ten(x):
+        return x
+
+    return x + 1
+</code></pre>
+<p>the deployment command needs to refer to <code>my_module.py</code> to
+ensure it&rsquo;s uploaded.</p>
+<pre><code class="language-python"># deploy.py
+
+# ... see above
+
+session.sproc.register_from_file(
+    name = &quot;add_one&quot;, # Name of the procedure in Snowflake
+    stage_location = &quot;python_source_code&quot;,
+    file_path = &quot;main.py&quot;,
+    func_name = &quot;add_one&quot;, # Within `main.py`
+    is_permanent = True,
+    replace = True,
+    packages = [&quot;snowflake-snowpark-python&quot;],
+    imports = [&quot;my_module.py&quot;] # This becomes `import my_module`
+)
+</code></pre>
+<p>This example demonstrated how to use a Python script to deploy a
+single Snowflake stored procedure. You could easily expand this
+to deploy multiple procedures, which may be more suitable for
+use in a CI/CD environment.</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://lewinfox.github.io/tags/python/">python</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://lewinfox.github.io/tags/snowflake/">snowflake</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://lewinfox.github.io/tags/snowpark/">snowpark</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://lewinfox.github.io/tags/tutorials/">tutorials</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://lewinfox.github.io/blog/iterate-over-rcpp-datevector-example/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">How to iterate over an Rcpp DateVector (with example)</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="GitHub"
+        href="https://www.github.com/lewinfox"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://lewinfox.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="Email"
+        href="mailto:lewin.a.f@gmail.com"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://lewinfox.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/lewinappletonfox"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('https://lewinfox.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+     
+</div>
+
+            <p>© 2022</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+          
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#creating-a-single-file-python-function">Creating a single-file Python function</a></li>
+    <li><a href="#writing-a-deployment-script">Writing a deployment script</a>
+      <ul>
+        <li><a href="#notes">Notes</a></li>
+      </ul>
+    </li>
+    <li><a href="#using-multiple-python-files">Using multiple Python files</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

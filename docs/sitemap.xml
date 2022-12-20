@@ -3,10 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lewinfox.github.io/</loc>
-    <lastmod>2020-10-10T17:33:04+12:00</lastmod>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
   </url><url>
     <loc>https://lewinfox.github.io/blog/</loc>
-    <lastmod>2020-10-10T17:33:04+12:00</lastmod>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
+  </url><url>
+    <loc>https://lewinfox.github.io/blog/deploy-snowflake-stored-procedures-python/</loc>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
+  </url><url>
+    <loc>https://lewinfox.github.io/tags/python/</loc>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
+  </url><url>
+    <loc>https://lewinfox.github.io/tags/snowflake/</loc>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
+  </url><url>
+    <loc>https://lewinfox.github.io/tags/snowpark/</loc>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
+  </url><url>
+    <loc>https://lewinfox.github.io/tags/</loc>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
+  </url><url>
+    <loc>https://lewinfox.github.io/tags/tutorials/</loc>
+    <lastmod>2022-12-20T19:24:21+13:00</lastmod>
   </url><url>
     <loc>https://lewinfox.github.io/blog/iterate-over-rcpp-datevector-example/</loc>
     <lastmod>2020-10-10T17:33:04+12:00</lastmod>
@@ -17,19 +35,10 @@
     <loc>https://lewinfox.github.io/tags/rcpp/</loc>
     <lastmod>2020-10-10T17:33:04+12:00</lastmod>
   </url><url>
-    <loc>https://lewinfox.github.io/tags/</loc>
-    <lastmod>2020-10-10T17:33:04+12:00</lastmod>
-  </url><url>
-    <loc>https://lewinfox.github.io/tags/tutorials/</loc>
-    <lastmod>2020-10-10T17:33:04+12:00</lastmod>
-  </url><url>
     <loc>https://lewinfox.github.io/blog/r-method-dispatch/</loc>
     <lastmod>2020-08-08T11:37:00+12:00</lastmod>
   </url><url>
     <loc>https://lewinfox.github.io/blog/unexpected-use-case-python/</loc>
-    <lastmod>2020-07-18T10:31:00+12:00</lastmod>
-  </url><url>
-    <loc>https://lewinfox.github.io/tags/python/</loc>
     <lastmod>2020-07-18T10:31:00+12:00</lastmod>
   </url><url>
     <loc>https://lewinfox.github.io/categories/</loc>

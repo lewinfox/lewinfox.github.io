@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sat, 10 Oct 2020 17:33:04 +1200</lastBuildDate><atom:link href="https://lewinfox.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Dec 2022 19:24:21 +1300</lastBuildDate><atom:link href="https://lewinfox.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://lewinfox.github.io/tags/python/</link>
+      <pubDate>Tue, 20 Dec 2022 19:24:21 +1300</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snowflake</title>
+      <link>https://lewinfox.github.io/tags/snowflake/</link>
+      <pubDate>Tue, 20 Dec 2022 19:24:21 +1300</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/snowflake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snowpark</title>
+      <link>https://lewinfox.github.io/tags/snowpark/</link>
+      <pubDate>Tue, 20 Dec 2022 19:24:21 +1300</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/snowpark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorials</title>
+      <link>https://lewinfox.github.io/tags/tutorials/</link>
+      <pubDate>Tue, 20 Dec 2022 19:24:21 +1300</pubDate>
+      
+      <guid>https://lewinfox.github.io/tags/tutorials/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>R</title>
       <link>https://lewinfox.github.io/tags/r/</link>
@@ -23,24 +59,6 @@
       <pubDate>Sat, 10 Oct 2020 17:33:04 +1200</pubDate>
       
       <guid>https://lewinfox.github.io/tags/rcpp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorials</title>
-      <link>https://lewinfox.github.io/tags/tutorials/</link>
-      <pubDate>Sat, 10 Oct 2020 17:33:04 +1200</pubDate>
-      
-      <guid>https://lewinfox.github.io/tags/tutorials/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://lewinfox.github.io/tags/python/</link>
-      <pubDate>Sat, 18 Jul 2020 10:31:00 +1200</pubDate>
-      
-      <guid>https://lewinfox.github.io/tags/python/</guid>
       <description></description>
     </item>
     
