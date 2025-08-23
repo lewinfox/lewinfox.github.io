@@ -1,0 +1,29 @@
+# The URL the site will be built for
+base_url = "https://www.lewinfox.com"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+taxonomies = [{ name = "tags" }]
+
+[extra]
+# Site metadata
+title = "Lewin Fox"
+description = "Consulting Data Engineer | MLOps | Cloud | Python"
+author = "Lewin Fox"
+
+# Navigation menu
+menu_items = [
+  { name = "Home", url = "/" },
+  { name = "Blog", url = "/blog/" },
+  { name = "About", url = "/about/" },
+  { name = "CV", url = "/cv/" },
+]

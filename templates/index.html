@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        {{ section.content | safe }}
+    </div>
+</section>
+
+{% if section.pages %}
+<section class="recent-posts">
+    <h2>Recent Posts</h2>
+    <div class="posts-grid">
+        {% for page in section.pages | slice(end=3) %}
+        <article class="post-card">
+            <h3 class="post-title">
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+            </h3>
+            {% if page.description %}
+            <p class="post-description">{{ page.description }}</p>
+            {% endif %}
+            <time class="post-date" datetime="{{ page.date }}">
+                {{ page.date | date(format="%B %d, %Y") }}
+            </time>
+        </article>
+        {% endfor %}
+    </div>
+    {% if section.pages | length > 3 %}
+    <div class="view-all">
+        <a href="{{ get_url(path='/blog/') }}" class="btn">View All Posts</a>
+    </div>
+    {% endif %}
+</section>
+{% endif %}
+{% endblock content %}
