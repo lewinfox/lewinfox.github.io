@@ -658,6 +658,128 @@ a {
             background-color: #4a4a4a;
         }
     }
+
+    /* CV dark mode */
+    .cv-header {
+        border-bottom-color: #4a9eff;
+    }
+
+    .cv-title {
+        color: #f0f0f0;
+    }
+
+    .cv-description {
+        color: #b0b0b0;
+    }
+
+    .cv-content {
+        h2 {
+            color: #4a9eff;
+            border-bottom-color: #404040;
+        }
+
+        h3 {
+            color: #f0f0f0;
+        }
+
+        table {
+            th, td {
+                border-color: #404040;
+            }
+
+            th {
+                background-color: #2a2a2a;
+                color: #f0f0f0;
+            }
+
+            tbody tr:nth-child(even) {
+                background-color: #2a2a2a;
+            }
+
+            tbody tr:hover {
+                background-color: #404040;
+            }
+        }
+    }
+}
+
+/* CV Page Styles */
+.cv-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.cv-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 1rem;
+}
+
+.cv-title {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.cv-description {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.cv-content {
+    line-height: 1.6;
+
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: #0066cc;
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 0.5rem;
+    }
+
+    h3 {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    li {
+        margin-bottom: 0.25rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.95rem;
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 1px solid #e9ecef;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tbody tr:hover {
+            background-color: #e9ecef;
+        }
+    }
 }
 
 /* Print Styles - Scales down font size for printing */
