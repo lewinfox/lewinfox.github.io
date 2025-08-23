@@ -585,12 +585,6 @@ a {
     animation: fadeInUp 0.8s ease 0.5s forwards;
 }
 
-/* About page animations */
-.about-hero {
-    animation: fadeIn 0.8s ease forwards;
-}
-
-
 
 .approach-card {
     opacity: 0;
@@ -717,19 +711,6 @@ a {
         text-align: center;
     }
 
-    /* About page mobile styles */
-    .about-hero {
-        margin-bottom: 2rem;
-        padding: 2rem 1rem;
-
-        .about-intro h2 {
-            font-size: 2rem;
-        }
-
-        .about-intro p {
-            font-size: 1.1rem;
-        }
-    }
 
     .about-services,
     .about-approach {
@@ -769,36 +750,6 @@ a {
     outline-offset: 2px;
 }
 
-/* About page styles */
-.about-hero {
-    text-align: center;
-    padding: 3rem 0;
-    border-radius: 16px;
-    margin-bottom: 3rem;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-
-    .about-intro {
-        max-width: 600px;
-        margin: 0 auto;
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #0066cc, #4a9eff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        p {
-            font-size: 1.3rem;
-            color: #555;
-            line-height: 1.6;
-        }
-    }
-}
 
 .about-services,
 .about-approach {
@@ -1241,24 +1192,6 @@ a {
         }
     }
 
-    /* About page dark mode */
-    .about-hero {
-        background: rgba(42, 42, 42, 0.3);
-        border-color: rgba(64, 64, 64, 0.2);
-
-        .about-intro {
-            h2 {
-                background: linear-gradient(135deg, #4a9eff, #66b3ff);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-
-            p {
-                color: #b0b0b0;
-            }
-        }
-    }
 
     .about-services h2,
     .about-approach h2,

@@ -2,8 +2,8 @@
 title = "Who am I?"
 +++
 
-<div class="about-hero">
-    <div class="about-intro">
+<div class="hero">
+    <div class="hero-content">
         <h2>Consulting Data Engineer</h2>
         <p>I'm passionate about turning complex data into clear insights. I help teams design, build, and scale reliable data systems without drowning in jargon.</p>
     </div>
