@@ -20,7 +20,7 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 /* Typography */
@@ -350,7 +350,7 @@ a {
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
-        padding: 0 15px;
+        padding: 0 24px;
     }
     
     .hero .hero-content h1 {
