@@ -4,11 +4,8 @@ Built with [Zola](https://www.getzola.org/documentation/getting-started/installa
 
 ## Quick Start
 
-Makefile uses Docker image to run commands to save installation fuckery.
-
-- `make init`: Start a new Zola project in the current directory
-- `zola serve`: Run a development server
-- `zola build`: Build the thing to the `public` dir (this is what needs to be served)
+Open in the devcontainer and the development server will be available on `localhost:1111`. It
+auto-reloads.
 
 ## How Templates and Content Interact
 
@@ -55,7 +52,7 @@ date = 2024-01-15
 
 **To Templates:**
 - `{{ page.title }}` → "Hello World"
-- `{{ page.description }}` → "Welcome to my blog"  
+- `{{ page.description }}` → "Welcome to my blog"
 - `{{ page.date }}` → 2024-01-15
 - `{{ page.content | safe }}` → Rendered markdown HTML
 
