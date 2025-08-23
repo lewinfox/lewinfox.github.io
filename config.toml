@@ -20,10 +20,10 @@ title = "Lewin Fox"
 description = "Consulting Data Engineer | MLOps | Cloud | Python"
 author = "Lewin Fox"
 
-# Navigation menu
 menu_items = [
   { name = "Home", url = "/" },
-  { name = "Blog", url = "/blog/" },
   { name = "About", url = "/about/" },
+  { name = "Blog", url = "/blog/" },
+  { name = "Case studies", url = "/case-studies/" },
   { name = "CV", url = "/cv/" },
-]
+] # Navigation menu
