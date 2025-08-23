@@ -3,15 +3,20 @@
 
 # Your data pipelines keep breaking. Let's fix that.
 
-**Data Engineering Consultant | 5+ years turning chaos into clarity**
+I help teams build reliable data systems that actually work - from broken spreadsheets to
+enterprise-scale cloud platforms. No buzzwords, no complexity you don't need. Trusted by financial
+services, government agencies, and logistics companies across NZ and UK.
 
-I help teams build reliable data systems that actually work — from broken spreadsheets to enterprise-scale cloud platforms. No buzzwords, no complexity you don't need.
 
 <div class="services-preview">
     <div class="highlight-card">
         <span class="service-icon">🔧</span>
         <h3>Data Pipeline Engineering</h3>
-        <p>Your daily reports failing? Data taking hours to update? I design robust ETL pipelines that run reliably, using modern tools like dbt, Airflow, and Snowflake. From CSV chaos to real-time analytics.</p>
+        <p>
+            Your daily reports failing? Data taking hours to update? I design robust ETL pipelines
+            that run reliably, using modern tools like dbt, Airflow, and Snowflake. From CSV chaos
+            to real-time analytics.
+        </p>
         <div class="tech-tags">
             <span class="tech-tag">dbt</span>
             <span class="tech-tag">Airflow</span>
@@ -21,7 +26,10 @@ I help teams build reliable data systems that actually work — from broken spre
     <div class="highlight-card">
         <span class="service-icon">☁️</span>
         <h3>Cloud & MLOps</h3>
-        <p>Stuck running models on laptops? I build production ML systems that scale — containerized models, automated deployment, proper versioning.</p>
+        <p>
+            Stuck running models on laptops? I build production ML systems that scale -
+            containerized models, automated deployment, proper versioning.
+        </p>
         <div class="tech-tags">
             <span class="tech-tag">AWS</span>
             <span class="tech-tag">Docker</span>
@@ -30,19 +38,26 @@ I help teams build reliable data systems that actually work — from broken spre
         </div>
     </div>
     <div class="highlight-card">
-        <span class="service-icon">📊</span>
+        <span class="service-icon">🚀</span>
         <h3>Data Strategy & Migration</h3>
-        <p>Legacy systems holding you back? I've migrated terabytes from Oracle/Excel to modern cloud warehouses, designed architectures serving 100+ users, and built systems processing millions of records daily.</p>
+        <p>
+            Legacy systems holding you back? I'll help you migrate to modern, robust solutions
+            using proven, reliable, modern tools.
+        </p>
         <div class="tech-tags">
-            <span class="tech-tag">Oracle</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">BigQuery</span>
+            <span class="tech-tag">dbt</span>
+            <span class="tech-tag">Snowflake</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Terraform</span>
         </div>
     </div>
     <div class="highlight-card">
-        <span class="service-icon">🚀</span>
+        <span class="service-icon">📊</span>
         <h3>Full-Stack Data Development</h3>
-        <p>Need everything from dashboards to databases? I work across the entire data stack — Python, R, SQL, Terraform — whatever gets your data working for you.</p>
+        <p>
+            Need everything from dashboards to databases? I work across the entire data stack -
+            Python, R, SQL, Terraform - whatever gets your data working for you.
+        </p>
         <div class="tech-tags">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">SQL</span>
@@ -50,8 +65,6 @@ I help teams build reliable data systems that actually work — from broken spre
         </div>
     </div>
 </div>
-
-Trusted by financial services, government agencies, and logistics companies across NZ and UK.
 
 <div class="hero-cta">
     <h2>Ready to Fix Your Data?</h2>

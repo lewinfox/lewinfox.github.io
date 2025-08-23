@@ -5,7 +5,13 @@ title = "Who am I?"
 <div class="hero">
     <div class="hero-content">
         <h2>Consulting Data Engineer</h2>
-        <p>I'm passionate about turning complex data into clear insights. I help teams design, build, and scale reliable data systems without drowning in jargon.</p>
+        <p>
+            I've worked in data for over a decade, in analytical, managerial and engineering roles.
+        </p>
+        <p>
+            I'm passionate about turning complex data into clear insights. I help teams design,
+            build, and scale reliable data systems without drowning in jargon.
+        </p>
     </div>
 </div>
 
@@ -15,7 +21,10 @@ title = "Who am I?"
         <div class="highlight-card">
             <span class="service-icon">🔧</span>
             <h3>Data Engineering</h3>
-            <p>Building robust ETL/ELT pipelines and data architectures that handle everything from CSV files to petabyte-scale data warehouses.</p>
+            <p>
+                Building robust ETL/ELT pipelines and data architectures that handle everything from
+                CSV files to petabyte-scale data warehouses.
+            </p>
             <div class="tech-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">SQL</span>
@@ -25,7 +34,10 @@ title = "Who am I?"
         <div class="highlight-card">
             <span class="service-icon">🤖</span>
             <h3>MLOps</h3>
-            <p>Streamlining machine learning workflows from development to production with proper versioning, monitoring, and automation.</p>
+            <p>
+                Streamlining machine learning workflows from development to production with proper
+                versioning, monitoring, and automation.
+            </p>
             <div class="tech-tags">
                 <span class="tech-tag">MLflow</span>
                 <span class="tech-tag">Docker</span>
@@ -35,21 +47,27 @@ title = "Who am I?"
         <div class="highlight-card">
             <span class="service-icon">☁️</span>
             <h3>Cloud Solutions</h3>
-            <p>Designing scalable systems on AWS, GCP, and Azure that grow with your business and budget.</p>
+            <p>
+                Designing scalable systems on AWS, GCP, and Azure that grow with your business and
+                budget.
+            </p>
             <div class="tech-tags">
                 <span class="tech-tag">AWS</span>
                 <span class="tech-tag">Terraform</span>
-                <span class="tech-tag">Kubernetes</span>
             </div>
         </div>
         <div class="highlight-card">
             <span class="service-icon">🐍</span>
             <h3>Python Development</h3>
-            <p>Creating efficient, maintainable data processing solutions with modern Python tools and best practices.</p>
+            <p>
+                Creating efficient, maintainable data processing solutions with modern Python tools
+                and best practices.
+            </p>
             <div class="tech-tags">
                 <span class="tech-tag">FastAPI</span>
                 <span class="tech-tag">Pandas</span>
                 <span class="tech-tag">PySpark</span>
+                <span class="tech-tag">Airflows</span>
             </div>
         </div>
     </div>
@@ -61,22 +79,34 @@ title = "Who am I?"
         <div class="approach-card">
             <div class="approach-icon">💬</div>
             <h3>Clear Communication</h3>
-            <p>No unnecessary technical jargon. I explain complex concepts in terms that make sense for your business.</p>
+            <p>
+                No unnecessary technical jargon. I explain complex concepts in terms that make sense
+                for your business.
+            </p>
         </div>
         <div class="approach-card">
             <div class="approach-icon">🎯</div>
             <h3>Pragmatic Solutions</h3>
-            <p>The right tool for the job, not just the newest one. I focus on what works for your specific needs.</p>
+            <p>
+                The right tool for the job, not just the newest one. I focus on what works for your
+                specific needs.
+            </p>
         </div>
         <div class="approach-card">
             <div class="approach-icon">🏗️</div>
             <h3>Reliable Systems</h3>
-            <p>Built to work today and scale tomorrow. I design with maintenance and growth in mind.</p>
+            <p>
+                Built to work today and scale tomorrow. I design with maintenance and growth in
+                mind.
+            </p>
         </div>
         <div class="approach-card">
             <div class="approach-icon">🎓</div>
             <h3>Knowledge Transfer</h3>
-            <p>Your team should understand and own the solution. I make sure you're never locked into my work.</p>
+            <p>
+                Your team should understand and own the solution. I make sure you're never locked
+                into my work.
+            </p>
         </div>
     </div>
 </div>
