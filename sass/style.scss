@@ -41,6 +41,41 @@ $radius-xl: 16px;
 $radius-xxl: 20px;
 $radius-full: 50%;
 
+/* Mixins */
+@mixin card-base {
+    background: $white-transparent;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: $radius-xl;
+    padding: $spacing-xl;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        border-color: rgba(0, 102, 204, 0.3);
+    }
+}
+
+@mixin card-dark-mode {
+    background: $dark-bg-surface;
+    border-color: rgba(64, 64, 64, 0.3);
+    
+    &:hover {
+        border-color: rgba(74, 158, 255, 0.4);
+        background: rgba(48, 48, 48, 0.9);
+    }
+    
+    h3 {
+        color: $dark-text;
+    }
+    
+    p {
+        color: $dark-text-muted;
+    }
+}
+
 /* Reset and base styles */
 * {
     box-sizing: border-box;
@@ -194,20 +229,8 @@ a {
 }
 
 .highlight-card {
-    background: $white-transparent;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: $radius-xl;
-    padding: $spacing-xl;
+    @include card-base;
     text-align: left;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-
-    &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        border-color: rgba(0, 102, 204, 0.3);
-    }
 
     .service-icon {
         font-size: 2.5rem;
@@ -819,20 +842,8 @@ a {
 }
 
 .approach-card {
-    background: $white-transparent;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: $radius-xl;
-    padding: $spacing-xl;
+    @include card-base;
     text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-
-    &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        border-color: rgba(0, 102, 204, 0.3);
-    }
 
     .approach-icon {
         font-size: 3rem;
@@ -880,22 +891,15 @@ a {
 }
 
 .contact-card {
+    @include card-base;
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 1.5rem;
-    background: $white-transparent;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: $radius-xl;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-
+    
     &:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        border-color: rgba(0, 102, 204, 0.3);
         text-decoration: none;
     }
 
@@ -1064,21 +1068,7 @@ a {
     }
 
     .highlight-card {
-        background: $dark-bg-surface;
-        border-color: rgba(64, 64, 64, 0.3);
-
-        &:hover {
-            border-color: rgba(74, 158, 255, 0.4);
-            background: rgba(48, 48, 48, 0.9);
-        }
-
-        h3 {
-            color: $dark-text;
-        }
-
-        p {
-            color: $dark-text-muted;
-        }
+        @include card-dark-mode;
     }
 
     /* Hero section dark mode */
@@ -1247,32 +1237,12 @@ a {
     }
 
     .approach-card {
-        background: $dark-bg-surface;
-        border-color: rgba(64, 64, 64, 0.3);
-
-        &:hover {
-            border-color: rgba(74, 158, 255, 0.4);
-            background: rgba(48, 48, 48, 0.9);
-        }
-
-        h3 {
-            color: $dark-text;
-        }
-
-        p {
-            color: $dark-text-muted;
-        }
+        @include card-dark-mode;
     }
 
     .contact-card {
-        background: $dark-bg-surface;
-        border-color: rgba(64, 64, 64, 0.3);
-
-        &:hover {
-            border-color: rgba(74, 158, 255, 0.4);
-            background: rgba(48, 48, 48, 0.9);
-        }
-
+        @include card-dark-mode;
+        
         .contact-info h4 {
             color: $dark-text;
         }
