@@ -12,7 +12,7 @@ title = "Who am I?"
 <div class="about-services">
     <h2>What I Do</h2>
     <div class="services-grid">
-        <div class="service-card">
+        <div class="highlight-card">
             <span class="service-icon">🔧</span>
             <h3>Data Engineering</h3>
             <p>Building robust ETL/ELT pipelines and data architectures that handle everything from CSV files to petabyte-scale data warehouses.</p>
@@ -22,7 +22,7 @@ title = "Who am I?"
                 <span class="tech-tag">dbt</span>
             </div>
         </div>
-        <div class="service-card">
+        <div class="highlight-card">
             <span class="service-icon">🤖</span>
             <h3>MLOps</h3>
             <p>Streamlining machine learning workflows from development to production with proper versioning, monitoring, and automation.</p>
@@ -32,7 +32,7 @@ title = "Who am I?"
                 <span class="tech-tag">CI/CD</span>
             </div>
         </div>
-        <div class="service-card">
+        <div class="highlight-card">
             <span class="service-icon">☁️</span>
             <h3>Cloud Solutions</h3>
             <p>Designing scalable systems on AWS, GCP, and Azure that grow with your business and budget.</p>
@@ -42,7 +42,7 @@ title = "Who am I?"
                 <span class="tech-tag">Kubernetes</span>
             </div>
         </div>
-        <div class="service-card">
+        <div class="highlight-card">
             <span class="service-icon">🐍</span>
             <h3>Python Development</h3>
             <p>Creating efficient, maintainable data processing solutions with modern Python tools and best practices.</p>

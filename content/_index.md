@@ -8,7 +8,7 @@
 I help teams build reliable data systems that actually work — from broken spreadsheets to enterprise-scale cloud platforms. No buzzwords, no complexity you don't need.
 
 <div class="services-preview">
-    <div class="service-card">
+    <div class="highlight-card">
         <span class="service-icon">🔧</span>
         <h3>Data Pipeline Engineering</h3>
         <p>Your daily reports failing? Data taking hours to update? I design robust ETL pipelines that run reliably, using modern tools like dbt, Airflow, and Snowflake. From CSV chaos to real-time analytics.</p>
@@ -18,7 +18,7 @@ I help teams build reliable data systems that actually work — from broken spre
             <span class="tech-tag">Snowflake</span>
         </div>
     </div>
-    <div class="service-card">
+    <div class="highlight-card">
         <span class="service-icon">☁️</span>
         <h3>Cloud & MLOps</h3>
         <p>Stuck running models on laptops? I build production ML systems that scale — containerized models, automated deployment, proper versioning.</p>
@@ -29,7 +29,7 @@ I help teams build reliable data systems that actually work — from broken spre
             <span class="tech-tag">Terraform</span>
         </div>
     </div>
-    <div class="service-card">
+    <div class="highlight-card">
         <span class="service-icon">📊</span>
         <h3>Data Strategy & Migration</h3>
         <p>Legacy systems holding you back? I've migrated terabytes from Oracle/Excel to modern cloud warehouses, designed architectures serving 100+ users, and built systems processing millions of records daily.</p>
@@ -39,7 +39,7 @@ I help teams build reliable data systems that actually work — from broken spre
             <span class="tech-tag">BigQuery</span>
         </div>
     </div>
-    <div class="service-card">
+    <div class="highlight-card">
         <span class="service-icon">🚀</span>
         <h3>Full-Stack Data Development</h3>
         <p>Need everything from dashboards to databases? I work across the entire data stack — Python, R, SQL, Terraform — whatever gets your data working for you.</p>

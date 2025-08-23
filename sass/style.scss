@@ -150,7 +150,7 @@ a {
     font-weight: 500;
 }
 
-.service-card {
+.highlight-card {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -559,7 +559,7 @@ a {
     animation: fadeInUp 0.8s ease forwards;
 }
 
-.service-card {
+.highlight-card {
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
 
@@ -636,7 +636,7 @@ a {
         padding: 0 24px;
     }
 
-    .service-card {
+    .highlight-card {
         padding: 1.5rem;
     }
 
@@ -747,7 +747,7 @@ a {
     }
 
     .approach-card,
-    .service-card {
+    .highlight-card {
         padding: 1.5rem;
     }
 
@@ -1069,7 +1069,7 @@ a {
         }
     }
 
-    .service-card {
+    .highlight-card {
         background: rgba(42, 42, 42, 0.8);
         border-color: rgba(64, 64, 64, 0.3);
 
