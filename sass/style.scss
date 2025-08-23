@@ -76,6 +76,34 @@ $radius-full: 50%;
     }
 }
 
+@mixin staggered-animation($base-delay: 0.1s, $increment: 0.1s, $max-children: 4) {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    
+    @for $i from 1 through $max-children {
+        &:nth-child(#{$i}) {
+            animation-delay: $base-delay + ($i - 1) * $increment;
+        }
+    }
+}
+
+@mixin responsive-grid($min-width: 280px, $gap: $spacing-xl) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+    gap: $gap;
+}
+
+@mixin button-hover-lift($translate-y: -2px, $shadow-color: rgba(0, 0, 0, 0.2)) {
+    &:hover {
+        transform: translateY($translate-y);
+        box-shadow: 0 6px 16px $shadow-color;
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
 /* Reset and base styles */
 * {
     box-sizing: border-box;
@@ -291,9 +319,7 @@ a {
 
     /* Service cards in hero */
     .services-preview {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: $spacing-xl;
+        @include responsive-grid(280px);
         margin-top: 3rem;
         max-width: 1000px;
         margin-left: auto;
@@ -626,24 +652,7 @@ a {
 }
 
 .highlight-card {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-
-    &:nth-child(1) {
-        animation-delay: 0.1s;
-    }
-
-    &:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    &:nth-child(3) {
-        animation-delay: 0.3s;
-    }
-
-    &:nth-child(4) {
-        animation-delay: 0.4s;
-    }
+    @include staggered-animation;
 }
 
 .hero-cta {
@@ -653,41 +662,11 @@ a {
 
 
 .approach-card {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-
-    &:nth-child(1) {
-        animation-delay: 0.1s;
-    }
-
-    &:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    &:nth-child(3) {
-        animation-delay: 0.3s;
-    }
-
-    &:nth-child(4) {
-        animation-delay: 0.4s;
-    }
+    @include staggered-animation;
 }
 
 .contact-card {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-
-    &:nth-child(1) {
-        animation-delay: 0.1s;
-    }
-
-    &:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    &:nth-child(3) {
-        animation-delay: 0.3s;
-    }
+    @include staggered-animation(0.1s, 0.1s, 3);
 }
 
 /* Responsive design */
