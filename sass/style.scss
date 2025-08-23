@@ -364,9 +364,9 @@ a {
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
 
+            @include button-hover-lift(-2px, rgba(0, 102, 204, 0.4));
+            
             &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
                 text-decoration: none;
             }
 
@@ -873,8 +873,9 @@ a {
     padding: 1.5rem;
     text-decoration: none;
     
+    @include button-hover-lift(-4px);
+    
     &:hover {
-        transform: translateY(-4px);
         text-decoration: none;
     }
 
@@ -935,14 +936,10 @@ a {
     justify-content: center;
     gap: 0.5rem;
 
+    @include button-hover-lift;
+    
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         background-color: $primary-blue-dark;
-    }
-
-    &:active {
-        transform: translateY(0);
     }
 
     .pdf-icon {
@@ -974,14 +971,10 @@ a {
     align-items: center;
     justify-content: center;
 
+    @include button-hover-lift;
+    
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         background-color: $border-light;
-    }
-
-    &:active {
-        transform: translateY(0);
     }
 }
 
