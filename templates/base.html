@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.extra.title }}</title>
+    <meta name="description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}">
+    <meta name="author" content="{{ config.extra.author }}">
+
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    {% if config.build_search_index %}
+    <script src="{{ get_url(path='search_index.en.js') }}" defer></script>
+    <script src="{{ get_url(path='elasticlunr.min.js') }}" defer></script>
+    {% endif %}
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">
+                    <a href="{{ get_url(path='/') }}">{{ config.extra.title }}</a>
+                </h1>
+                <div class="header-nav">
+                    <nav class="site-nav">
+                        <ul class="nav-list">
+                            {% for item in config.extra.menu_items %}
+                            <li class="nav-item">
+                                <a href="{{ get_url(path=item.url) }}"
+                                    class="nav-link{% if current_url == item.url %} active{% endif %}">
+                                    {{ item.name }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                    <a href="mailto:lewin.a.f@gmail.com" class="contact-link" title="Email me">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-text">Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock content %}
+        </div>
+    </main>
+
+    <!-- Dark mode toggle -->
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" id="darkModeIcon"></i>
+    </button>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.author }}. Built with <a
+                        href="https://www.getzola.org/">Zola</a>.</p>
+                <a href="mailto:lewin.a.f@gmail.com" class="contact-link" title="Email me">
+                    <i class="fas fa-envelope"></i>
+                    <span class="contact-text">Contact</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode functionality
+        (function() {
+            const toggleButton = document.getElementById('darkModeToggle');
+            const icon = document.getElementById('darkModeIcon');
+            const body = document.body;
+            
+            // Check for saved theme preference or default to system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Set initial theme
+            if (savedTheme) {
+                body.setAttribute('data-theme', savedTheme);
+                updateIcon(savedTheme);
+            } else if (systemPrefersDark) {
+                body.setAttribute('data-theme', 'dark');
+                updateIcon('dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                updateIcon('light');
+            }
+            
+            // Toggle theme function
+            function toggleTheme() {
+                const currentTheme = body.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            }
+            
+            // Update icon based on theme
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.className = 'fas fa-sun';
+                } else {
+                    icon.className = 'fas fa-moon';
+                }
+            }
+            
+            // Add click event listener
+            toggleButton.addEventListener('click', toggleTheme);
+            
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!localStorage.getItem('theme')) {
+                    const newTheme = e.matches ? 'dark' : 'light';
+                    body.setAttribute('data-theme', newTheme);
+                    updateIcon(newTheme);
+                }
+            });
+        })();
+
+        // Simple page enhancements
+        (function() {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add any additional page-load enhancements here if needed
+            });
+        })();
+    </script>
+</body>
+
+</html>

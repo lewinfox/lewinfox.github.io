@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section-header">
+    <h1>{{ section.title }}</h1>
+    {% if section.description %}
+    <p class="section-description">{{ section.description }}</p>
+    {% endif %}
+</div>
+
+{% if section.content %}
+<div class="section-content">
+    {{ section.content | safe }}
+</div>
+{% endif %}
+
+{% if section.pages %}
+<div class="posts-list">
+    {% for page in section.pages %}
+    <article class="post-summary">
+        <header class="post-header">
+            <h2 class="post-title">
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+            </h2>
+            <div class="post-meta">
+                <time class="post-date" datetime="{{ page.date }}">
+                    {{ page.date | date(format="%B %d, %Y") }}
+                </time>
+                {% if page.reading_time %}
+                <span class="reading-time">{{ page.reading_time }} min read</span>
+                {% endif %}
+            </div>
+        </header>
+        {% if page.description %}
+        <div class="post-excerpt">
+            <p>{{ page.description }}</p>
+        </div>
+        {% endif %}
+        {% if page.taxonomies.tags %}
+        <div class="post-tags">
+            {% for tag in page.taxonomies.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </article>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock content %}

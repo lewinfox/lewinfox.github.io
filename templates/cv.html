@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+<div class="cv-container">
+
+    <!-- Floating PDF Button -->
+    <button onclick="window.print()" class="floating-pdf-btn no-print" title="Print / Save as PDF">
+        <span class="pdf-text">&#128190 Download as PDF</span>
+        <span class="pdf-icon">&#128190</span>
+    </button>
+
+    <!-- CV Header -->
+    <header class="cv-header">
+        <h1 class="cv-title">{{ section.title }}</h1>
+    </header>
+
+    <!-- CV Content -->
+    <div class="cv-content">
+        {{ section.content | safe }}
+    </div>
+</div>
+{% endblock content %}
