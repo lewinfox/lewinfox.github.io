@@ -1,6 +1,5 @@
 +++
 title = "Lewin Appleton-Fox"
-description = "CV"
 template = "cv.html"
 +++
 
