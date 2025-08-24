@@ -256,11 +256,18 @@ a {
     font-weight: 500;
 }
 
-.highlight-card {
+/* Generic card system */
+.card-container {
+    @include responsive-grid(280px);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.card {
     @include card-base;
     text-align: left;
 
-    .service-icon {
+    .card-icon {
         font-size: 2.5rem;
         margin-bottom: 1rem;
         display: block;
@@ -279,8 +286,18 @@ a {
         line-height: 1.6;
         margin: 0;
     }
+}
 
-
+/* Timeline badge for engagement cards */
+.timeline {
+    background: linear-gradient(135deg, $primary-blue, $primary-blue-light);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: $radius-lg;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 /* Hero section */
@@ -319,11 +336,8 @@ a {
 
     /* Service cards in hero */
     .services-preview {
-        @include responsive-grid(280px);
+        @extend .card-container;
         margin-top: 3rem;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
 
@@ -651,7 +665,7 @@ a {
     animation: fadeInUp 0.8s ease forwards;
 }
 
-.highlight-card {
+.card {
     @include staggered-animation;
 }
 
@@ -675,7 +689,7 @@ a {
         padding: 0 24px;
     }
 
-    .highlight-card {
+    .card {
         padding: 1.5rem;
     }
 
@@ -772,8 +786,8 @@ a {
         gap: 1.5rem;
     }
 
-    .approach-card,
-    .highlight-card {
+    .card,
+    .approach-card {
         padding: 1.5rem;
     }
 
@@ -809,17 +823,17 @@ a {
 }
 
 .services-grid {
-    @include responsive-grid(280px);
+    @extend .card-container;
     margin-top: 2rem;
 }
 
 .approach-grid {
-    @include responsive-grid(250px);
+    @extend .card-container;
     margin-top: 2rem;
 }
 
 .approach-card {
-    @include card-base;
+    @extend .card;
     text-align: center;
 
     .approach-icon {
@@ -830,15 +844,6 @@ a {
 
     h3 {
         font-size: 1.3rem;
-        margin-bottom: 1rem;
-        color: $text-dark;
-        font-weight: 600;
-    }
-
-    p {
-        color: $text-medium;
-        line-height: 1.6;
-        margin: 0;
     }
 }
 
@@ -860,13 +865,13 @@ a {
 }
 
 .contact-links {
-    @include responsive-grid(250px, 1.5rem);
+    @extend .card-container;
+    gap: 1.5rem;
     max-width: 800px;
-    margin: 0 auto;
 }
 
 .contact-card {
-    @include card-base;
+    @extend .card;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -1035,7 +1040,7 @@ a {
         }
     }
 
-    .highlight-card {
+    .card {
         @include card-dark-mode;
     }
 

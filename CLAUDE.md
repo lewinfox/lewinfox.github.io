@@ -6,6 +6,9 @@ is a business sire promoting my data engineering consultancy.
 A development server is always running at `localhost:1111`; use `curl` if you
 need to inspect a page or test anything.
 
+Site CSS is defined in `sass/style.scss`. Any styling changes should be applied
+this file rather than in any CSS or HTML files.
+
 My CV is available at `cv.md`. Refer to this to find my skills and experience.
 
 # Site contents

@@ -7,10 +7,9 @@ I help teams build reliable data systems that actually work - from broken spread
 enterprise-scale cloud platforms. No buzzwords, no complexity you don't need. Trusted by financial
 services, government agencies, and logistics companies across NZ and UK.
 
-
 <div class="services-preview">
-    <div class="highlight-card">
-        <span class="service-icon">🔧</span>
+    <div class="card">
+        <span class="card-icon">🔧</span>
         <h3>Data Pipeline Engineering</h3>
         <p>
             Your daily reports failing? Data taking hours to update? I design robust ETL pipelines
@@ -23,8 +22,8 @@ services, government agencies, and logistics companies across NZ and UK.
             <span class="tech-tag">Snowflake</span>
         </div>
     </div>
-    <div class="highlight-card">
-        <span class="service-icon">☁️</span>
+    <div class="card">
+        <span class="card-icon">☁️</span>
         <h3>Cloud & MLOps</h3>
         <p>
             Stuck running models on laptops? I build production ML systems that scale -
@@ -37,8 +36,8 @@ services, government agencies, and logistics companies across NZ and UK.
             <span class="tech-tag">Terraform</span>
         </div>
     </div>
-    <div class="highlight-card">
-        <span class="service-icon">🚀</span>
+    <div class="card">
+        <span class="card-icon">🚀</span>
         <h3>Data Strategy & Migration</h3>
         <p>
             Legacy systems holding you back? I'll help you migrate to modern, robust solutions
@@ -51,8 +50,8 @@ services, government agencies, and logistics companies across NZ and UK.
             <span class="tech-tag">Terraform</span>
         </div>
     </div>
-    <div class="highlight-card">
-        <span class="service-icon">📊</span>
+    <div class="card">
+        <span class="card-icon">📊</span>
         <h3>Full-Stack Data Development</h3>
         <p>
             Need everything from dashboards to databases? I work across the entire data stack -
