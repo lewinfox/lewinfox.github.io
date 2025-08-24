@@ -6,8 +6,6 @@
         <h2>Who I Am</h2>
         <p>
             I've worked in data for over a decade, in analytical, managerial and engineering roles.
-        </p>
-        <p>
             I'm passionate about turning complex data into clear insights. I help teams design,
             build, and scale reliable data systems without drowning in jargon.
         </p>
