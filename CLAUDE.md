@@ -3,15 +3,15 @@
 This website is build with [`zola`](https://www.getzola.org/documentation) and
 is a business sire promoting my data engineering consultancy.
 
-A development server is always running at `localhost:8080`; use `curl` if you
+A development server is always running at `localhost:1111`; use `curl` if you
 need to inspect a page or test anything.
 
 My CV is available at `cv.md`. Refer to this to find my skills and experience.
 
 # Site contents
 
-* Homepage
-* Blog
+- Homepage
+- Blog
 
 ## Headers and footers
 
@@ -28,13 +28,13 @@ development, data warehouse design, and system architecture.
 
 Core technologies:
 
-* Python
-* SQL
-* dbt
-* Snowflake
-* AWS
-* Docker
-* Terraform
+- Python
+- SQL
+- dbt
+- Snowflake
+- AWS
+- Docker
+- Terraform
 
 ## Blog
 

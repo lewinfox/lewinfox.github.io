@@ -4,14 +4,14 @@ Built with [Zola](https://www.getzola.org/documentation/getting-started/installa
 
 ## Quick Start
 
-Open in the devcontainer and the development server will be available on `localhost:1111`. It
-auto-reloads.
+Open in the devcontainer, run `zola serve` and the site will be served on `localhost:1111`.
 
 ## How Templates and Content Interact
 
 ### Content-to-Template Mapping
 
 **Content Type → Template Used:**
+
 - `content/_index.md` → `templates/index.html` (homepage)
 - `content/blog/_index.md` → `templates/section.html` (blog listing)
 - `content/about/_index.md` → `templates/section.html` (about page)
@@ -20,20 +20,22 @@ auto-reloads.
 ### Template Hierarchy
 
 **Base Template (`base.html`):**
+
 ```html
 <html>
-  <head>...</head>
+  <head>
+    ...
+  </head>
   <body>
     <header>...</header>
-    <main>
-      {% block content %}{% endblock content %}
-    </main>
+    <main>{% block content %}{% endblock content %}</main>
     <footer>...</footer>
   </body>
 </html>
 ```
 
 **Child Templates Extend Base:**
+
 - `index.html` → `{% extends "base.html" %}`
 - `section.html` → `{% extends "base.html" %}`
 - `page.html` → `{% extends "base.html" %}`
@@ -41,6 +43,7 @@ auto-reloads.
 ### Data Flow
 
 **From Content Files:**
+
 ```toml
 +++
 title = "Hello World"
@@ -51,6 +54,7 @@ date = 2024-01-15
 ```
 
 **To Templates:**
+
 - `{{ page.title }}` → "Hello World"
 - `{{ page.description }}` → "Welcome to my blog"
 - `{{ page.date }}` → 2024-01-15
@@ -59,34 +63,39 @@ date = 2024-01-15
 ### Key Variables
 
 **For Pages (individual posts):**
+
 - `page.title`, `page.content`, `page.date`
 - `page.earlier` / `page.later` (navigation)
 - `page.reading_time` (auto-calculated)
 
 **For Sections (blog listing, about):**
+
 - `section.title`, `section.content`, `section.pages`
 - `section.pages` contains all posts in that section
 
 **Global Config:**
+
 - `config.extra.title` → "Lewin Fox"
 - `config.extra.menu_items` → Navigation array
 
 ### Template Logic Examples
 
 **Homepage Recent Posts:**
+
 ```html
 {% for page in section.pages | slice(end=3) %}
-  <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+<h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
 {% endfor %}
 ```
 
 **Blog Listing:**
+
 ```html
 {% for page in section.pages %}
-  <article>
-    <h2>{{ page.title }}</h2>
-    <time>{{ page.date | date(format="%B %d, %Y") }}</time>
-  </article>
+<article>
+  <h2>{{ page.title }}</h2>
+  <time>{{ page.date | date(format="%B %d, %Y") }}</time>
+</article>
 {% endfor %}
 ```
 
