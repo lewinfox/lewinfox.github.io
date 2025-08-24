@@ -21,7 +21,7 @@ description = "Consulting Data Engineer | MLOps | Cloud | Python"
 author = "Lewin Fox"
 
 menu_items = [
-  { name = "Home", url = "/" },
+  { name = "Services", url = "/" },
   { name = "About", url = "/about/" },
   # { name = "Blog", url = "/blog/" },
   # { name = "Case studies", url = "/case-studies/" },

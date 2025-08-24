@@ -1,10 +1,9 @@
 +++
-title = "Who am I?"
 +++
 
 <div class="hero">
     <div class="hero-content">
-        <h2>Consulting Data Engineer</h2>
+        <h2>Who I Am</h2>
         <p>
             I've worked in data for over a decade, in analytical, managerial and engineering roles.
         </p>
