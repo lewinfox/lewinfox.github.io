@@ -24,23 +24,23 @@ from and teach others.
 Most of my work for the last five years has been with modern cloud-native data
 platforms in AWS and Azure. Typical tech stack: **Python / dbt / Terraform / AWS / Docker**.
 
-| Skill         | Years Exp. | Notable Competencies / Specialisms                                  |
-|---------------|------------|---------------------------------------------------------------------|
-| Linux         | 16         | System configuration, CLI, bash scripting                           |
-| Python        | 6          | ETL, machine learning, CLI/GUI development                          |
-| Cloud / IaC   | 5          | Terraform, EC2, S3, Lambda, MWAA, Athena, RDS, ECS, cloud-native architecture |
-| Docker        | 4          | Containerisation, docker-compose, VSCode devcontainers, microservices |
-| CI/CD         | 6          | GitHub Actions (tests, docs, dbt deployments, websites)             |
-| Machine Learning | 3       | Propensity modelling, segmentation, tree-based models               |
-| LLMs          | 1          | RAG, prompt engineering, Ollama, vector databases                   |
-| MLOps         | 1          | Containerisation, model serving, CI/CD for ML, MLFlow, model versioning |
-| R             | 7          | Shiny, tidyverse, package development, ML, CRAN package maintainer  |
-| dbt           | 4          | Extensive use including custom Jinja macros                         |
-| Snowflake     | 4          | Sysadmin, UDFs, Snowpark                                            |
+| Skill            | Years Exp. | Notable Competencies / Specialisms                                            |
+| ---------------- | ---------- | ----------------------------------------------------------------------------- |
+| Linux            | 16         | System configuration, CLI, bash scripting                                     |
+| Python           | 6          | ETL, machine learning, CLI/GUI development                                    |
+| Cloud / IaC      | 5          | Terraform, EC2, S3, Lambda, MWAA, Athena, RDS, ECS, cloud-native architecture |
+| Docker           | 4          | Containerisation, docker-compose, VSCode devcontainers, microservices         |
+| CI/CD            | 6          | GitHub Actions (tests, docs, dbt deployments, websites)                       |
+| Machine Learning | 3          | Propensity modelling, segmentation, tree-based models                         |
+| LLMs             | 1          | RAG, prompt engineering, Ollama, vector databases                             |
+| MLOps            | 1          | Containerisation, model serving, CI/CD for ML, MLFlow, model versioning       |
+| R                | 7          | Shiny, tidyverse, package development, ML, CRAN package maintainer            |
+| dbt              | 4          | Extensive use including custom Jinja macros                                   |
+| Snowflake        | 4          | Sysadmin, UDFs, Snowpark                                                      |
 
 ---
 
-## Published Software
+## Open Source
 
 Programming is a hobby as well as a job, and I'm passionate about open source software. I've
 contributed to a number of open source projects and maintain the following:
@@ -51,10 +51,11 @@ contributed to a number of open source projects and maintain the following:
 
 ---
 
-## Experience
+## Engagements
 
 ### Data Engineer | [needles.io](https://needles.io) | Remote
-*Aug 2024 - Present*
+
+_Aug 2024 - Present_
 
 - Providing data engineering services to a large NZ-based financial services firm.
 - Designed, built and maintained enterprise-scale ETL systems in AWS (Athena, RDS, S3, Airflow/MWAA,
@@ -66,8 +67,9 @@ contributed to a number of open source projects and maintain the following:
 
 ---
 
-### Data Tech Specialist | ACC | Wellington
-*Sept 2022 - Aug 2024*
+### Data Tech Specialist | ACC | Wellington, NZ
+
+_Sept 2022 - Aug 2024_
 
 - Co-architected and developed enterprise **MLOps framework** (MLflow, Docker, R, Python).
 - Designed containerisation strategy for R and Python models with inference store + logging.
@@ -83,8 +85,9 @@ contributed to a number of open source projects and maintain the following:
 
 ---
 
-### Senior Data Engineer | New Zealand Post | Wellington
-*July 2021 - Sept 2022*
+### Senior Data Engineer | New Zealand Post | Wellington, NZ
+
+_July 2021 - Sept 2022_
 
 - Led migration of multiple legacy on-prem systems (Oracle, SQL Server) to Snowflake.
 - Built integrations with Active Directory and multiple SaaS providers.
@@ -98,8 +101,9 @@ contributed to a number of open source projects and maintain the following:
 
 ---
 
-### Senior Analyst | Ministry of Justice | Wellington
-*Dec 2020 - July 2021*
+### Senior Data Analyst | Ministry of Justice | Wellington, NZ
+
+_Dec 2020 - July 2021_
 
 - Led setup/configuration of a new **RStudio Server** installation for analyst teams.
 - Liaised with analysts and BI team to define technical requirements and workflows.
@@ -108,8 +112,9 @@ contributed to a number of open source projects and maintain the following:
 
 ---
 
-### R Developer | Ministry for Primary Industries | Wellington
-*Feb 2020 - Dec 2020*
+### R Developer | Ministry for Primary Industries | Wellington, NZ
+
+_Feb 2020 - Dec 2020_
 
 - Translated NZ's complex agricultural **greenhouse gas emissions model** from Excel/VBA to R.
 - Delivered complete solution including comprehensive code, documentation, and unit tests.
@@ -120,7 +125,8 @@ contributed to a number of open source projects and maintain the following:
 ---
 
 ### Junior ML & Data Engineer | Hargreaves Lansdown | Bristol, UK
-*Jan 2018 - Sept 2019*
+
+_Jan 2018 - Sept 2019_
 
 - Migrated legacy databases to Hadoop cluster.
 - Built ETL/data models (Hive, Impala, Sqoop).
@@ -132,7 +138,8 @@ contributed to a number of open source projects and maintain the following:
 ---
 
 ### Operations MI & Reporting Manager | Hargreaves Lansdown | Bristol, UK
-*Dec 2015 - Jan 2018*
+
+_Dec 2015 - Jan 2018_
 
 - Built and led a new MI/reporting team from ground up.
 - Architected processes that significantly improved operational efficiency and reduced risk.
@@ -141,7 +148,8 @@ contributed to a number of open source projects and maintain the following:
 ---
 
 ### Customer Support & Team Leadership | Hargreaves Lansdown | Bristol, UK
-*Feb 2011 - Dec 2015*
+
+_Feb 2011 - Dec 2015_
 
 - Progressed from Customer Support to Team Leader (2013) to Operations MI Manager (2015).
 
