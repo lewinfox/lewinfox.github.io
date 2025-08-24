@@ -57,10 +57,10 @@
         </div>
         <div class="highlight-card">
             <span class="service-icon">🐍</span>
-            <h3>Python Development</h3>
+            <h3>Python/R Development</h3>
             <p>
-                Creating efficient, maintainable data processing solutions with modern Python tools
-                and best practices.
+                Creating efficient, maintainable data processing solutions with modern tools and
+                best practices.
             </p>
             <div class="tech-tags">
                 <span class="tech-tag">FastAPI</span>
@@ -126,13 +126,6 @@
             <div class="contact-info">
                 <h4>LinkedIn</h4>
                 <p>linkedin.com/in/lewinfox</p>
-            </div>
-        </a>
-        <a href="https://github.com/lewinfox" class="contact-card">
-            <div class="contact-icon">🐙</div>
-            <div class="contact-info">
-                <h4>GitHub</h4>
-                <p>github.com/lewinfox</p>
             </div>
         </a>
     </div>
