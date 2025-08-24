@@ -1,7 +1,7 @@
 +++
 +++
 
-# Your data pipelines keep breaking. Let's fix that.
+# Your data should work for you, not against you.
 
 I help teams build reliable data systems that actually work - from broken spreadsheets to
 enterprise-scale cloud platforms. No buzzwords, no complexity you don't need. Trusted by financial
@@ -67,7 +67,7 @@ services, government agencies, and logistics companies across NZ and UK.
 </div>
 
 <div class="hero-cta">
-    <h2>Ready to Fix Your Data?</h2>
+    <h2>Ready to fix your data?</h2>
     <p><strong>Tell me what's broken.</strong> I'll help you build something that works.</p>
     <a href="mailto:lewin.a.f@gmail.com?subject=Data%20Engineering%20Help&body=Hi%20Lewin,%0D%0A%0D%0AI%20need%20help%20with:%0D%0A%0D%0A[Describe%20your%20data%20challenge%20here]" class="contact-button">
         <i class="fas fa-envelope"></i>
