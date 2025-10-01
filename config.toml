@@ -23,7 +23,7 @@ author = "Lewin Fox"
 menu_items = [
   { name = "Services", url = "/" },
   { name = "About", url = "/about/" },
-  # { name = "Blog", url = "/blog/" },
+  { name = "Blog", url = "/blog/" },
   # { name = "Case studies", url = "/case-studies/" },
   { name = "CV", url = "/cv/" },
 ] # Navigation menu

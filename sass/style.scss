@@ -521,6 +521,11 @@ a {
     border-radius: $radius-md;
     overflow-x: auto;
     margin: 1rem 0;
+
+    code {
+      background-color: transparent;
+      padding: 0;
+    }
   }
 
   code {
@@ -1157,6 +1162,10 @@ a {
     pre {
       background-color: $dark-bg;
       border: 1px solid $dark-border;
+
+      code {
+        background-color: transparent;
+      }
     }
 
     code {
