@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:127.0.0.1)",
       "Bash(docker logs:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "WebFetch(domain:lewinfox.com)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [],
     "ask": []
