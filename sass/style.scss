@@ -32,14 +32,17 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   color: var(--text);
   background-color: var(--bg);
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 /* Container */
@@ -163,19 +166,36 @@ body {
 /* Markdown content styling */
 .page-content,
 .section-content {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     line-height: 1.2;
     margin-top: 2rem;
     margin-bottom: 1rem;
     color: var(--text);
   }
 
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
-  h4 { font-size: 1.1rem; }
-  h5 { font-size: 1rem; }
-  h6 { font-size: 0.9rem; }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1.1rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h6 {
+    font-size: 0.9rem;
+  }
 
   p {
     margin-bottom: 1rem;
@@ -191,7 +211,8 @@ body {
     text-decoration: underline;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-bottom: 1rem;
     padding-left: 2rem;
   }
@@ -240,7 +261,8 @@ body {
     border-collapse: collapse;
     margin: 1rem 0;
 
-    th, td {
+    th,
+    td {
       border: 1px solid var(--border);
       padding: 0.5rem;
       text-align: left;
@@ -273,13 +295,19 @@ body {
   }
 }
 
+.section-intro {
+  margin-bottom: 2rem;
+}
+
 /* Card component - reusable across site */
 .card {
   padding: 1rem 1.25rem;
   background-color: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
   position: relative;
   cursor: pointer;
 
@@ -317,7 +345,7 @@ body {
 
     /* Make the link cover the entire card */
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
