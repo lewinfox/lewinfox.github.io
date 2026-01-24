@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <!-- Apply theme immediately to prevent flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
     {% if config.build_search_index %}
     <script src="{{ get_url(path='search_index.en.js') }}" defer></script>
     <script src="{{ get_url(path='elasticlunr.min.js') }}" defer></script>
@@ -76,35 +86,9 @@
         (function() {
             const toggleButton = document.getElementById('darkModeToggle');
             const icon = document.getElementById('darkModeIcon');
-            const body = document.body;
-            
-            // Check for saved theme preference or default to system preference
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            // Set initial theme
-            if (savedTheme) {
-                body.setAttribute('data-theme', savedTheme);
-                updateIcon(savedTheme);
-            } else if (systemPrefersDark) {
-                body.setAttribute('data-theme', 'dark');
-                updateIcon('dark');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                updateIcon('light');
-            }
-            
-            // Toggle theme function
-            function toggleTheme() {
-                const currentTheme = body.getAttribute('data-theme') || 'light';
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateIcon(newTheme);
-            }
-            
-            // Update icon based on theme
+            const html = document.documentElement;
+
+            // Update icon based on current theme
             function updateIcon(theme) {
                 if (theme === 'dark') {
                     icon.className = 'fas fa-sun';
@@ -112,24 +96,31 @@
                     icon.className = 'fas fa-moon';
                 }
             }
-            
+
+            // Set initial icon state
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            updateIcon(currentTheme);
+
+            // Toggle theme function
+            function toggleTheme() {
+                const currentTheme = html.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            }
+
             // Add click event listener
             toggleButton.addEventListener('click', toggleTheme);
-            
+
             // Listen for system theme changes
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
                 if (!localStorage.getItem('theme')) {
                     const newTheme = e.matches ? 'dark' : 'light';
-                    body.setAttribute('data-theme', newTheme);
+                    html.setAttribute('data-theme', newTheme);
                     updateIcon(newTheme);
                 }
-            });
-        })();
-
-        // Simple page enhancements
-        (function() {
-            document.addEventListener('DOMContentLoaded', function() {
-                // Add any additional page-load enhancements here if needed
             });
         })();
     </script>
