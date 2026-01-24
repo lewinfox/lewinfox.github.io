@@ -1,7 +1,7 @@
 # Overview
 
 This website is build with [`zola`](https://www.getzola.org/documentation) and
-is a business sire promoting my data engineering consultancy.
+is a business site promoting my data engineering consultancy.
 
 A development server is always running at `localhost:1111`; use `curl` if you
 need to inspect a page or test anything.

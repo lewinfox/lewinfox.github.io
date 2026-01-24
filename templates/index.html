@@ -3,7 +3,14 @@
 {% block content %}
 <section class="hero">
     <div class="hero-content">
-        {{ section.content | safe }}
+        {% if section.extra.headshot %}
+        <div class="hero-headshot">
+            <img src="{{ get_url(path=section.extra.headshot) }}" alt="Lewin Fox" class="headshot">
+        </div>
+        {% endif %}
+        <div class="hero-text">
+            {{ section.content | safe }}
+        </div>
     </div>
 </section>
 

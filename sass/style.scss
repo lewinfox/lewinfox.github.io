@@ -407,6 +407,11 @@ body {
 }
 
 .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -416,6 +421,20 @@ body {
     font-size: 1.1rem;
     color: var(--text-light);
   }
+}
+
+.hero-headshot {
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border);
+  }
+}
+
+.hero-text {
+  max-width: 700px;
 }
 
 /* Posts grid on homepage */
