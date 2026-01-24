@@ -5,7 +5,6 @@ weight = 4
 
 [extra]
 github = "https://github.com/lewinfox/lambdar"
-tags = ["R", "AWS", "serverless", "cloud"]
 +++
 
 Lambdar is an R package designed to simplify deploying R functions to AWS Lambda by providing a custom runtime environment. The package enables developers to write R code normally, then annotate handler functions with a `@lambda` tag.

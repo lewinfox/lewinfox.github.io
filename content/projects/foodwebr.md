@@ -5,7 +5,6 @@ weight = 1
 
 [extra]
 github = "https://github.com/lewinfox/foodwebr"
-tags = ["R", "visualization", "code-analysis"]
 +++
 
 The foodwebr package enables developers to visualize how functions call each other within R codebases. It makes it easy to visualise the dependency graph of a set of functions (i.e. who calls who).

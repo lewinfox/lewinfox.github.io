@@ -5,7 +5,6 @@ weight = 3
 
 [extra]
 github = "https://github.com/lewinfox/levitate"
-tags = ["R", "string-matching", "algorithms"]
 +++
 
 The levitate package provides fuzzy string matching capabilities entirely in R, with no dependencies on Python or the reticulate package. Inspired by Python's thefuzz library (formerly fuzzywuzzy), it enables developers to:

@@ -15,27 +15,20 @@
 {% endif %}
 
 {% if section.pages %}
-<section class="section-posts">
-    <div class="posts-list">
+<section class="section-content">
+    <div class="card-list">
         {% for page in section.pages %}
-        <article class="post-item">
-            <h2 class="post-title">
+        <article class="card">
+            <h2 class="card-title">
                 <a href="{{ page.permalink }}">{{ page.title }}</a>
             </h2>
             {% if page.date %}
-            <time class="post-date" datetime="{{ page.date }}">
+            <time class="card-date" datetime="{{ page.date }}">
                 {{ page.date | date(format="%B %d, %Y") }}
             </time>
             {% endif %}
             {% if page.description %}
-            <p class="post-description">{{ page.description }}</p>
-            {% endif %}
-            {% if page.extra.tags %}
-            <div class="post-tags">
-                {% for tag in page.extra.tags %}
-                <span class="tag">{{ tag }}</span>
-                {% endfor %}
-            </div>
+            <p class="card-description">{{ page.description }}</p>
             {% endif %}
         </article>
         {% endfor %}

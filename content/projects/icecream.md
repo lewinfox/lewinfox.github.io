@@ -5,7 +5,6 @@ weight = 2
 
 [extra]
 github = "https://github.com/lewinfox/icecream"
-tags = ["R", "debugging", "developer-tools"]
 +++
 
 The icecream package is an R debugging tool designed to simplify print debugging. It provides an `ic()` function that displays expressions alongside their evaluated values, along with optional context information like file location and function name.
