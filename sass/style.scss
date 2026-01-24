@@ -277,7 +277,20 @@ body {
 .posts-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.post-item {
+  padding: 1.5rem;
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
 }
 
 .post-summary {
@@ -440,13 +453,21 @@ body {
 /* Posts grid on homepage */
 .posts-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .post-card {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+  padding: 1.5rem;
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
 }
 
 .recent-posts {
