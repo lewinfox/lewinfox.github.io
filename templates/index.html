@@ -1,44 +1,42 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <section class="hero">
-    <div class="hero-content">
-        {% if section.extra.headshot %}
-        <div class="hero-headshot">
-            <img src="{{ get_url(path=section.extra.headshot) }}" alt="Lewin Fox" class="headshot">
-        </div>
-        {% endif %}
-        <div class="hero-text">
-            {{ section.content | safe }}
-        </div>
+  <div class="hero-content">
+    {% if section.extra.headshot %}
+    <div class="hero-headshot">
+      <img
+        src="{{ get_url(path=section.extra.headshot) }}"
+        alt="Lewin Fox"
+        class="headshot"
+      />
     </div>
+    {% endif %}
+    <div class="hero-text">{{ section.content | safe }}</div>
+  </div>
 </section>
 
 {% if section.pages %}
 <section class="recent-posts">
-    <h2>Recent Posts</h2>
-    <div class="card-list">
-        {% for page in section.pages | slice(end=3) %}
-        <article class="card">
-            <h3 class="card-title">
-                <a href="{{ page.permalink }}">{{ page.title }}</a>
-            </h3>
-            {% if page.date %}
-            <time class="card-date" datetime="{{ page.date }}">
-                {{ page.date | date(format="%B %d, %Y") }}
-            </time>
-            {% endif %}
-            {% if page.description %}
-            <p class="card-description">{{ page.description }}</p>
-            {% endif %}
-        </article>
-        {% endfor %}
-    </div>
-    {% if section.pages | length > 3 %}
-    <div class="view-all">
-        <a href="{{ get_url(path='/blog/') }}" class="btn">View All Posts</a>
-    </div>
-    {% endif %}
+  <h2>Recent Posts</h2>
+  <div class="card-list">
+    {% for page in section.pages | slice(end=3) %}
+    <article class="card">
+      <h3 class="card-title">
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+      </h3>
+      {% if page.date %}
+      <time class="card-date" datetime="{{ page.date }}">
+        {{ page.date | date(format="%B %d, %Y") }}
+      </time>
+      {% endif %} {% if page.description %}
+      <p class="card-description">{{ page.description }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% if section.pages | length > 3 %}
+  <div class="view-all">
+    <a href="{{ get_url(path='/blog/') }}" class="btn">View All Posts</a>
+  </div>
+  {% endif %}
 </section>
-{% endif %}
-{% endblock content %}
+{% endif %} {% endblock content %}

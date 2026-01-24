@@ -1,46 +1,44 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <section class="section-header">
-    <h1>{{ section.title }}</h1>
-    {% if section.description %}
-    <p class="section-description">{{ section.description }}</p>
-    {% endif %}
+  <h1>{{ section.title }}</h1>
+  {% if section.description %}
+  <p class="section-description">{{ section.description }}</p>
+  {% endif %}
 </section>
 
 {% if section.content %}
-<section class="section-intro">
-    {{ section.content | safe }}
-</section>
-{% endif %}
-
-{% if section.pages %}
+<section class="section-intro">{{ section.content | safe }}</section>
+{% endif %} {% if section.pages %}
 <section class="section-content">
-    <div class="card-list">
-        {% for page in section.pages %}
-        <article class="card">
-            <h2 class="card-title">
-                {% if page.extra.external_url %}
-                <a href="{{ page.extra.external_url }}" target="_blank" rel="noopener noreferrer">{{ page.title }}</a>
-                {% else %}
-                <a href="{{ page.permalink }}">{{ page.title }}</a>
-                {% endif %}
-            </h2>
-            {% if page.date %}
-            <time class="card-date" datetime="{{ page.date }}">
-                {{ page.date | date(format="%B %d, %Y") }}
-            </time>
-            {% endif %}
-            {% if page.description %}
-            <p class="card-description">{{ page.description }}</p>
-            {% endif %}
-        </article>
-        {% endfor %}
-    </div>
+  <div class="card-list">
+    {% for page in section.pages %}
+    <article class="card">
+      <h2 class="card-title">
+        <!-- If `external_url` is provided we will link straight to that -->
+        {% if page.extra.external_url %}
+        <a
+          href="{{ page.extra.external_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ page.title }}</a
+        >
+        {% else %}
+        <a href="{{ page.permalink }}">{{ page.title }}</a>
+        {% endif %}
+      </h2>
+      {% if page.date %}
+      <time class="card-date" datetime="{{ page.date }}">
+        {{ page.date | date(format="%B %d, %Y") }}
+      </time>
+      {% endif %} {% if page.description %}
+      <p class="card-description">{{ page.description }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
 </section>
 {% else %}
 <section class="section-empty">
-    <p>No posts yet.</p>
+  <p>No posts yet.</p>
 </section>
-{% endif %}
-{% endblock content %}
+{% endif %} {% endblock content %}
