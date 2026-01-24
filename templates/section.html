@@ -20,7 +20,11 @@
         {% for page in section.pages %}
         <article class="card">
             <h2 class="card-title">
+                {% if page.extra.external_url %}
+                <a href="{{ page.extra.external_url }}" target="_blank" rel="noopener noreferrer">{{ page.title }}</a>
+                {% else %}
                 <a href="{{ page.permalink }}">{{ page.title }}</a>
+                {% endif %}
             </h2>
             {% if page.date %}
             <time class="card-date" datetime="{{ page.date }}">
