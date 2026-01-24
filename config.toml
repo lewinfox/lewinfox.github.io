@@ -23,5 +23,4 @@ author = "Lewin Fox"
 menu_items = [
   { name = "Blog", url = "/blog/" },
   { name = "Projects", url = "/projects/" },
-  { name = "CV", url = "/cv/" }
 ]
