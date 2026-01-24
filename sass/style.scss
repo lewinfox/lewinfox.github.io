@@ -96,12 +96,30 @@ body {
   color: var(--link);
 }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: var(--link);
+}
+
 .contact-link {
   color: var(--text-light);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1.25rem;
 }
 
 .contact-link:hover {
