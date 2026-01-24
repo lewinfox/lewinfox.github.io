@@ -45,6 +45,35 @@ Contains blog posts on various technical topics likely to be of interest to
 someone searching for data engineering topics. For now this can be a bullet point
 list of topics relevant to my skills.
 
+## Card Customization (Projects & Blog Posts)
+
+Cards (used for blog posts and projects) support optional customization through
+frontmatter:
+
+**External Links:**
+Add `external_url` in the `[extra]` section to make a card link to an external
+site instead of an internal page:
+
+```toml
+[extra]
+external_url = "https://github.com/username/project"
+```
+
+**Icons:**
+Add visual icons to cards using either:
+- `icon` - for emoji (e.g., "🚀", "λ")
+- `icon_image` - for image file paths (local or external URLs)
+
+```toml
+[extra]
+icon = "🕸️"
+# OR
+icon_image = "https://example.com/logo.png"
+```
+
+Icons appear on the left side of the card, with the title and description on
+the right. If both are specified, `icon_image` takes priority.
+
 ## Design principles
 
 The website should be as light as possible, content-first. Minimal JS, maximum

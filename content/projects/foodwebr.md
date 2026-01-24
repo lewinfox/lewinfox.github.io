@@ -5,4 +5,5 @@ weight = 1
 
 [extra]
 external_url = "https://lewinfox.com/foodwebr"
+icon = "🕸️"
 +++

@@ -13,26 +13,37 @@
   <div class="card-list">
     {% for page in section.pages %}
     <article class="card">
-      <h2 class="card-title">
-        <!-- If `external_url` is provided we will link straight to that -->
-        {% if page.extra.external_url %}
-        <a
-          href="{{ page.extra.external_url }}"
-          target="_blank"
-          rel="noopener noreferrer"
-          >{{ page.title }}</a
-        >
-        {% else %}
-        <a href="{{ page.permalink }}">{{ page.title }}</a>
+      {% if page.extra.icon or page.extra.icon_image %}
+      <div class="card-icon">
+        {% if page.extra.icon_image %}
+        <img src="{{ page.extra.icon_image }}" alt="" class="card-icon-image" />
+        {% elif page.extra.icon %}
+        <span class="card-icon-emoji">{{ page.extra.icon }}</span>
         {% endif %}
-      </h2>
-      {% if page.date %}
-      <time class="card-date" datetime="{{ page.date }}">
-        {{ page.date | date(format="%B %d, %Y") }}
-      </time>
-      {% endif %} {% if page.description %}
-      <p class="card-description">{{ page.description }}</p>
+      </div>
       {% endif %}
+      <div class="card-content">
+        <h2 class="card-title">
+          <!-- If `external_url` is provided we will link straight to that -->
+          {% if page.extra.external_url %}
+          <a
+            href="{{ page.extra.external_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ page.title }}</a
+          >
+          {% else %}
+          <a href="{{ page.permalink }}">{{ page.title }}</a>
+          {% endif %}
+        </h2>
+        {% if page.date %}
+        <time class="card-date" datetime="{{ page.date }}">
+          {{ page.date | date(format="%B %d, %Y") }}
+        </time>
+        {% endif %} {% if page.description %}
+        <p class="card-description">{{ page.description }}</p>
+        {% endif %}
+      </div>
     </article>
     {% endfor %}
   </div>

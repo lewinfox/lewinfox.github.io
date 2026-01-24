@@ -49,6 +49,16 @@ Open in the devcontainer, run `zola serve` and the site will be served on `local
 title = "Hello World"
 description = "Welcome to my blog"
 date = 2024-01-15
+
+[extra]
+# Optional: Make card link to external URL instead of internal page
+external_url = "https://github.com/username/project"
+
+# Optional: Add an icon to the card (emoji)
+icon = "🚀"
+
+# Optional: Add an icon to the card (image file - local or external URL)
+icon_image = "images/logo.png"
 +++
 # Markdown content here
 ```
@@ -59,6 +69,9 @@ date = 2024-01-15
 - `{{ page.description }}` → "Welcome to my blog"
 - `{{ page.date }}` → 2024-01-15
 - `{{ page.content | safe }}` → Rendered markdown HTML
+- `{{ page.extra.external_url }}` → External link (optional)
+- `{{ page.extra.icon }}` → Emoji icon (optional)
+- `{{ page.extra.icon_image }}` → Image icon (optional)
 
 ### Key Variables
 
