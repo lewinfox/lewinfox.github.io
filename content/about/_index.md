@@ -19,11 +19,11 @@ processes. Now I work for myself, doing freelance development.
 Programming is a hobby as well as a job. Some of my own projects:
 
 - [Articles](https://articles-app.com), an ad-free social networking app.
+- [Needle](@/portfolio/_index.md#needle), an OBD2 car diagnostics app.
+- [Cloudbase](@/portfolio/_index.md#cloudbase), a flight companion for paragliders.
 - [earshot](https://github.com/lewinfox/earshot), open-source DJ software.
 - [foodwebr](https://lewinfox.com/foodwebr) and [levitate](https://lewinfox.com/levitate), analytical
   packages for the R programming language.
-- [Needle](@/portfolio/_index.md#needle), an OBD2 car diagnostics app.
-- [Cloudbase](@/portfolio/_index.md#cloudbase), a flight companion for paragliders.
 
 If you've got a knotty tech problem, get in touch!
 

@@ -3,7 +3,7 @@
 photo = "hero"
 +++
 
-# Software made in Queenstown.
+# Software, made in Queenstown.
 
 Hi! I'm Lewin. I build software to solve business problems: apps, websites, whatever you need.
 I've spent over ten years building and automating systems for government departments and large
