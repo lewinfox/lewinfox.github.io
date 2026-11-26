@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
+{# Uses the site-wide `reading_photo` unless the section sets its own with
+   `[extra] photo = "..."` in its front matter. #}
+{% block body_class %}reading photo-{{ section.extra.photo | default(value=config.extra.reading_photo) }}{% endblock body_class %}
+
+{% block photo_credit %}
+{% set photo_key = section.extra.photo | default(value=config.extra.reading_photo) %}
+{% set photo = config.extra.photos[photo_key] %}
+<p class="photo-credit">Photo: <a href="{{ photo.url }}">{{ photo.credit }}</a></p>
+{% endblock photo_credit %}
+
 {% block content %}
 <main class="reading-main">
     <h1>{{ section.title }}</h1>

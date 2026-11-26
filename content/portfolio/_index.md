@@ -1,6 +1,9 @@
 +++
 title = "Portfolio"
 description = "A selection of my favourite side projects"
+
+[extra]
+photo = "lakeside"
 +++
 
 ## Cloudbase

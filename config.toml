@@ -50,13 +50,18 @@ menu_items = [
 ]
 
 # Background photos. A landing page picks one with `[extra] photo = "lake"` in
-# its front matter; the blog uses `reading_photo`; the 404 page uses "lookout".
+# its front matter; the blog uses `reading_photo` (other pages on the plain
+# layout can override it the same way); the 404 page uses "lookout".
 # Files live in static/img/, and each needs a .photo-<name> class in style.scss.
 reading_photo = "autumn"
 
 [extra.photos.autumn]
 credit = "Joel Staveley"
 url = "https://unsplash.com/photos/aAO4Kw-RD1c"
+
+[extra.photos.lakeside]
+credit = "ling hua"
+url = "https://unsplash.com/photos/DXjYFXgIpls"
 
 [extra.photos.lookout]
 credit = "Sébastien Goldberg"
@@ -70,6 +75,6 @@ url = "https://unsplash.com/photos/snow-capped-mountains-overlook-a-coastal-town
 credit = "Hayley Shen"
 url = "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-trees-9dsSywWpv54"
 
-[extra.photos.town]
-credit = "Donald Wu"
-url = "https://unsplash.com/photos/town-nestled-beside-a-large-blue-lake-and-mountains-34IZTH8Ekto"
+[extra.photos.paragliders]
+credit = "Yogendra Negi"
+url = "https://unsplash.com/photos/mRRM50kpIZY"

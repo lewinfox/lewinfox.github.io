@@ -4,7 +4,7 @@ description = "Lewin Appleton-Fox is a software developer in Queenstown, New Zea
 template = "landing.html"
 
 [extra]
-photo = "town"
+photo = "paragliders"
 +++
 
 # About

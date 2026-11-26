@@ -214,8 +214,8 @@ p {
 .photo-lake {
   --photo: url("/img/lake-1200.webp");
 }
-.photo-town {
-  --photo: url("/img/town-1200.webp");
+.photo-paragliders {
+  --photo: url("/img/paragliders-1200.webp");
 }
 .photo-autumn {
   --photo: url("/img/autumn-1200.webp");
@@ -224,9 +224,15 @@ p {
 .photo-lookout {
   --photo: url("/img/lookout-1200.webp");
 }
+.photo-lakeside {
+  --photo: url("/img/lakeside-1200.webp");
+}
 @media (min-width: 1201px) {
   .photo-autumn {
     --photo: url("/img/autumn-1800.webp");
+  }
+  .photo-lakeside {
+    --photo: url("/img/lakeside-2000.webp");
   }
   .photo-lookout {
     --photo: url("/img/lookout-2000.webp");
@@ -237,8 +243,8 @@ p {
   .photo-lake {
     --photo: url("/img/lake-1800.webp");
   }
-  .photo-town {
-    --photo: url("/img/town-2000.webp");
+  .photo-paragliders {
+    --photo: url("/img/paragliders-2000.webp");
   }
 }
 
