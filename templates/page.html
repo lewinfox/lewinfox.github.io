@@ -1,51 +1,49 @@
 {% extends "base.html" %}
 
+{# Structured data for blog posts, for search engines and LLMs #}
+{% block meta %}
+{% if page.date %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | json_encode | safe }},
+  {% if page.description %}"description": {{ page.description | json_encode | safe }},{% endif %}
+  "datePublished": "{{ page.date }}",
+  "dateModified": "{% if page.updated %}{{ page.updated }}{% else %}{{ page.date }}{% endif %}",
+  "url": "{{ page.permalink | safe }}",
+  "mainEntityOfPage": "{{ page.permalink | safe }}",
+  "image": "{{ get_url(path=config.extra.social_image) | safe }}",
+  "author": {
+    "@type": "Person",
+    "@id": "{{ get_url(path='/', trailing_slash=true) | safe }}#person",
+    "name": {{ config.extra.author | json_encode | safe }},
+    "url": "{{ get_url(path='/', trailing_slash=true) | safe }}"
+  }
+}
+</script>
+{% endif %}
+{% endblock meta %}
+
 {% block content %}
-<article class="page">
-    <header class="page-header">
-        <h1 class="page-title">{{ page.title }}</h1>
+<main class="reading-main">
+    <article>
+        <h1>{{ page.title }}</h1>
         {% if page.date %}
-        <div class="page-meta">
-            <time class="page-date" datetime="{{ page.date }}">
-                {{ page.date | date(format="%B %d, %Y") }}
-            </time>
-            {% if page.reading_time %}
-            <span class="reading-time">{{ page.reading_time }} min read</span>
-            {% endif %}
-        </div>
+        <p class="post-meta">
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%-d %B %Y") }}</time>
+            {% if page.reading_time %} · {{ page.reading_time }} min read{% endif %}
+        </p>
         {% endif %}
-        {% if page.taxonomies.tags %}
-        <div class="page-tags">
-            {% for tag in page.taxonomies.tags %}
-            <span class="tag">{{ tag }}</span>
-            {% endfor %}
-        </div>
-        {% endif %}
-    </header>
 
-    <div class="page-content">
         {{ page.content | safe }}
-    </div>
+    </article>
 
-    {% if page.earlier or page.later %}
-    <nav class="page-navigation">
-        {% if page.earlier %}
-        <div class="nav-previous">
-            <a href="{{ page.earlier.permalink }}" class="nav-link">
-                <span class="nav-label">← Previous</span>
-                <span class="nav-title">{{ page.earlier.title }}</span>
-            </a>
-        </div>
-        {% endif %}
-        {% if page.later %}
-        <div class="nav-next">
-            <a href="{{ page.later.permalink }}" class="nav-link">
-                <span class="nav-label">Next →</span>
-                <span class="nav-title">{{ page.later.title }}</span>
-            </a>
-        </div>
-        {% endif %}
+    {% if page.lower or page.higher %}
+    <nav class="post-nav">
+        {% if page.lower %}<a href="{{ page.lower.permalink }}">← {{ page.lower.title }}</a>{% endif %}
+        {% if page.higher %}<a href="{{ page.higher.permalink }}">{{ page.higher.title }} →</a>{% endif %}
     </nav>
     {% endif %}
-</article>
+</main>
 {% endblock content %}

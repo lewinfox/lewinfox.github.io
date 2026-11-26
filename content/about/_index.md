@@ -1,130 +1,30 @@
 +++
+title = "About"
+description = "Lewin Appleton-Fox is a software developer in Queenstown, New Zealand, with over ten years in software and data."
+template = "landing.html"
+
+[extra]
+photo = "paragliders"
 +++
 
-<div class="hero">
-    <div class="hero-content">
-        <h2>Who I Am</h2>
-        <p>
-            I've worked in data for over a decade, in analytical, managerial and engineering roles.
-            I'm passionate about turning complex data into clear insights. I help teams design,
-            build, and scale reliable data systems without drowning in jargon.
-        </p>
-    </div>
-</div>
+# About
 
-<div class="about-services">
-    <h2>What I Do</h2>
-    <div class="services-grid">
-        <div class="highlight-card">
-            <span class="service-icon">🔧</span>
-            <h3>Data Engineering</h3>
-            <p>
-                Building robust ETL/ELT pipelines and data architectures that handle everything from
-                CSV files to petabyte-scale data warehouses.
-            </p>
-            <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">SQL</span>
-                <span class="tech-tag">dbt</span>
-            </div>
-        </div>
-        <div class="highlight-card">
-            <span class="service-icon">🤖</span>
-            <h3>MLOps</h3>
-            <p>
-                Streamlining machine learning workflows from development to production with proper
-                versioning, monitoring, and automation.
-            </p>
-            <div class="tech-tags">
-                <span class="tech-tag">MLflow</span>
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">CI/CD</span>
-            </div>
-        </div>
-        <div class="highlight-card">
-            <span class="service-icon">☁️</span>
-            <h3>Cloud Solutions</h3>
-            <p>
-                Designing scalable systems on AWS, GCP, and Azure that grow with your business and
-                budget.
-            </p>
-            <div class="tech-tags">
-                <span class="tech-tag">AWS</span>
-                <span class="tech-tag">Terraform</span>
-            </div>
-        </div>
-        <div class="highlight-card">
-            <span class="service-icon">🐍</span>
-            <h3>Python/R Development</h3>
-            <p>
-                Creating efficient, maintainable data processing solutions with modern tools and
-                best practices.
-            </p>
-            <div class="tech-tags">
-                <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">Pandas</span>
-                <span class="tech-tag">PySpark</span>
-                <span class="tech-tag">Airflows</span>
-            </div>
-        </div>
-    </div>
-</div>
+I'm Lewin Appleton-Fox, a software engineer in Queenstown.
 
-<div class="about-approach">
-    <h2>My Approach</h2>
-    <div class="approach-grid">
-        <div class="approach-card">
-            <div class="approach-icon">💬</div>
-            <h3>Clear Communication</h3>
-            <p>
-                No unnecessary technical jargon. I explain complex concepts in terms that make sense
-                for your business.
-            </p>
-        </div>
-        <div class="approach-card">
-            <div class="approach-icon">🎯</div>
-            <h3>Pragmatic Solutions</h3>
-            <p>
-                The right tool for the job, not just the newest one. I focus on what works for your
-                specific needs.
-            </p>
-        </div>
-        <div class="approach-card">
-            <div class="approach-icon">🏗️</div>
-            <h3>Reliable Systems</h3>
-            <p>
-                Built to work today and scale tomorrow. I design with maintenance and growth in
-                mind.
-            </p>
-        </div>
-        <div class="approach-card">
-            <div class="approach-icon">🎓</div>
-            <h3>Knowledge Transfer</h3>
-            <p>
-                Your team should understand and own the solution. I make sure you're never locked
-                into my work.
-            </p>
-        </div>
-    </div>
-</div>
+I spent nearly a decade in financial services in the UK, moved to New Zealand in 2019 and to
+Queenstown in 2025. Since moving I've worked for government departments and financial firms:
+crunching data, connecting systems that didn't talk to each other, and automating painful manual
+processes. Now I work for myself, doing freelance development.
 
-<div class="about-contact">
-    <h2>Let's Work Together</h2>
-    <p>Ready to discuss your data challenges? Here's how to reach me:</p>
-    <div class="contact-links">
-        <a href="mailto:lewin.a.f@gmail.com" class="contact-card">
-            <div class="contact-icon">📧</div>
-            <div class="contact-info">
-                <h4>Email</h4>
-                <p>lewin.a.f@gmail.com</p>
-            </div>
-        </a>
-        <a href="https://linkedin.com/in/lewinfox" class="contact-card">
-            <div class="contact-icon">💼</div>
-            <div class="contact-info">
-                <h4>LinkedIn</h4>
-                <p>linkedin.com/in/lewinfox</p>
-            </div>
-        </a>
-    </div>
-</div>
+Programming is a hobby as well as a job. Some of my own projects:
+
+- [Articles](https://articles-app.com), an ad-free social networking app.
+- [Needle](@/portfolio/_index.md#needle), an OBD2 car diagnostics app.
+- [Cloudbase](@/portfolio/_index.md#cloudbase), a flight companion for paragliders.
+- [earshot](https://github.com/lewinfox/earshot), open-source DJ software.
+- [foodwebr](https://lewinfox.com/foodwebr) and [levitate](https://lewinfox.com/levitate), analytical
+  packages for the R programming language.
+
+If you've got a knotty tech problem, get in touch!
+
+<a class="button" href="mailto:lewin.a.f@gmail.com?subject=Website%20enquiry">Send me an email</a>

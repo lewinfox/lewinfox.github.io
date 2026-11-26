@@ -1,35 +1,63 @@
-{% extends "base.html" %}
+{# The homepage uses the full-screen photo layout, plus structured data that
+   tells search engines and LLMs who I am and what I offer. #}
+{% extends "landing.html" %}
 
-{% block content %}
-<section class="hero">
-    <div class="hero-content">
-        {{ section.content | safe }}
-    </div>
-</section>
-
-{% if section.pages %}
-<section class="recent-posts">
-    <h2>Recent Posts</h2>
-    <div class="posts-grid">
-        {% for page in section.pages | slice(end=3) %}
-        <article class="post-card">
-            <h3 class="post-title">
-                <a href="{{ page.permalink }}">{{ page.title }}</a>
-            </h3>
-            {% if page.description %}
-            <p class="post-description">{{ page.description }}</p>
-            {% endif %}
-            <time class="post-date" datetime="{{ page.date }}">
-                {{ page.date | date(format="%B %d, %Y") }}
-            </time>
-        </article>
-        {% endfor %}
-    </div>
-    {% if section.pages | length > 3 %}
-    <div class="view-all">
-        <a href="{{ get_url(path='/blog/') }}" class="btn">View All Posts</a>
-    </div>
-    {% endif %}
-</section>
-{% endif %}
-{% endblock content %}
+{% block meta %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "{{ get_url(path='/', trailing_slash=true) | safe }}#business",
+      "name": {{ config.extra.title | json_encode | safe }},
+      "description": {{ config.extra.description | json_encode | safe }},
+      "url": "{{ get_url(path='/', trailing_slash=true) | safe }}",
+      "email": {{ config.extra.email | json_encode | safe }},
+      "image": "{{ get_url(path=config.extra.social_image) | safe }}",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Queenstown",
+        "addressRegion": "Otago",
+        "addressCountry": "NZ"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Queenstown" },
+        { "@type": "Country", "name": "New Zealand" }
+      ],
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "App development", "description": "Android and iOS apps for businesses" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web development", "description": "Websites and web applications, including hosting and maintenance" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software development", "description": "Bespoke software for problems off-the-shelf products don't solve" } }
+      ],
+      "founder": { "@id": "{{ get_url(path='/', trailing_slash=true) | safe }}#person" },
+      "sameAs": [{{ config.extra.github | json_encode | safe }}, {{ config.extra.linkedin | json_encode | safe }}],
+      "knowsAbout": [
+        "Android app development",
+        "iOS app development",
+        "Web development",
+        "Web hosting",
+        "Python",
+        "SQL",
+        "AWS",
+        "Docker",
+        "Data engineering"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ get_url(path='/', trailing_slash=true) | safe }}#person",
+      "name": {{ config.extra.author | json_encode | safe }},
+      "alternateName": {{ config.extra.title | json_encode | safe }},
+      "jobTitle": "Software engineer",
+      "url": "{{ get_url(path='/', trailing_slash=true) | safe }}",
+      "email": {{ config.extra.email | json_encode | safe }},
+      "worksFor": { "@id": "{{ get_url(path='/', trailing_slash=true) | safe }}#business" },
+      "homeLocation": { "@type": "City", "name": "Queenstown, New Zealand" },
+      "sameAs": [{{ config.extra.github | json_encode | safe }}, {{ config.extra.linkedin | json_encode | safe }}]
+    }
+  ]
+}
+</script>
+{% endblock meta %}

@@ -1,29 +1,81 @@
-# The URL the site will be built for
-base_url = "https://www.lewinfox.com"
+# The URL the site will be built for. This must match the custom domain set in
+# GitHub Pages (lewinfox.com; www.lewinfox.com redirects to it).
+base_url = "https://lewinfox.com"
+
+# Used by the Atom feed
+title = "Lewin Fox"
+description = "Software, app and web development in Queenstown, New Zealand. I build software to solve business problems: apps, websites, whatever the job needs."
+default_language = "en"
+
+# Atom feed of blog posts at /atom.xml
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+# No search UI on the site, so don't build or load a search index
+build_search_index = false
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = true
 
-taxonomies = [{ name = "tags" }]
+# Syntax highlighting for code blocks. The site is dark-only, so one dark theme.
+# Themes: https://www.getzola.org/documentation/content/syntax-highlighting/
+[markdown.highlighting]
+theme = "github-dark"
 
 [extra]
-# Site metadata
+# Site metadata. `tagline` completes the homepage <title>; `description` is
+# the fallback meta description for pages that don't set their own.
 title = "Lewin Fox"
-description = "Consulting Data Engineer | MLOps | Cloud | Python"
-author = "Lewin Fox"
+tagline = "Software, app and web development in Queenstown"
+description = "Software, app and web development in Queenstown, New Zealand. I build software to solve business problems: apps, websites, whatever the job needs."
+# `title` is the short brand name (header, page titles); `author` is my full name
+# (footer copyright, author metadata)
+author = "Lewin Appleton-Fox"
+location = "Queenstown, New Zealand"
+
+# Image shown when the site is shared on LinkedIn, Slack etc. (1200x630 JPEG)
+social_image = "img/social.jpg"
+
+# Contact links, used in the header and footer
+email = "lewin.a.f@gmail.com"
+github = "https://github.com/lewinfox"
+linkedin = "https://www.linkedin.com/in/lewinfox"
 
 menu_items = [
-  { name = "Services", url = "/" },
-  { name = "About", url = "/about/" },
-  # { name = "Blog", url = "/blog/" },
-  # { name = "Case studies", url = "/case-studies/" },
-  { name = "CV", url = "/cv/" },
-] # Navigation menu
+    { name = "Services", url = "/services/" },
+    { name = "Portfolio", url = "/portfolio/" },
+    { name = "About", url = "/about/" },
+    { name = "Blog", url = "/blog/" },
+]
+
+# Background photos. A landing page picks one with `[extra] photo = "lake"` in
+# its front matter; the blog uses `reading_photo` (other pages on the plain
+# layout can override it the same way); the 404 page uses "lookout".
+# Files live in static/img/, and each needs a .photo-<name> class in style.scss.
+reading_photo = "autumn"
+
+[extra.photos.autumn]
+credit = "Joel Staveley"
+url = "https://unsplash.com/photos/aAO4Kw-RD1c"
+
+[extra.photos.lakeside]
+credit = "ling hua"
+url = "https://unsplash.com/photos/DXjYFXgIpls"
+
+[extra.photos.lookout]
+credit = "Sébastien Goldberg"
+url = "https://unsplash.com/photos/k6ngIyjAfd8"
+
+[extra.photos.hero]
+credit = "Stephen Gong"
+url = "https://unsplash.com/photos/snow-capped-mountains-overlook-a-coastal-town-at-dusk-mgook43bEVw"
+
+[extra.photos.lake]
+credit = "Hayley Shen"
+url = "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-trees-9dsSywWpv54"
+
+[extra.photos.paragliders]
+credit = "Yogendra Negi"
+url = "https://unsplash.com/photos/mRRM50kpIZY"

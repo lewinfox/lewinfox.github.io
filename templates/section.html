@@ -1,50 +1,36 @@
 {% extends "base.html" %}
 
+{# Uses the site-wide `reading_photo` unless the section sets its own with
+   `[extra] photo = "..."` in its front matter. #}
+{% block body_class %}reading photo-{{ section.extra.photo | default(value=config.extra.reading_photo) }}{% endblock body_class %}
+
+{% block photo_credit %}
+{% set photo_key = section.extra.photo | default(value=config.extra.reading_photo) %}
+{% set photo = config.extra.photos[photo_key] %}
+<p class="photo-credit">Photo: <a href="{{ photo.url }}">{{ photo.credit }}</a></p>
+{% endblock photo_credit %}
+
 {% block content %}
-<div class="section-header">
+<main class="reading-main">
     <h1>{{ section.title }}</h1>
     {% if section.description %}
-    <p class="section-description">{{ section.description }}</p>
+    <p class="lede">{{ section.description }}</p>
     {% endif %}
-</div>
 
-{% if section.content %}
-<div class="section-content">
     {{ section.content | safe }}
-</div>
-{% endif %}
 
-{% if section.pages %}
-<div class="posts-list">
-    {% for page in section.pages %}
-    <article class="post-summary">
-        <header class="post-header">
-            <h2 class="post-title">
-                <a href="{{ page.permalink }}">{{ page.title }}</a>
-            </h2>
-            <div class="post-meta">
-                <time class="post-date" datetime="{{ page.date }}">
-                    {{ page.date | date(format="%B %d, %Y") }}
-                </time>
-                {% if page.reading_time %}
-                <span class="reading-time">{{ page.reading_time }} min read</span>
-                {% endif %}
-            </div>
-        </header>
-        {% if page.description %}
-        <div class="post-excerpt">
+    {% if section.pages %}
+    <ul class="post-list">
+        {% for page in section.pages %}
+        <li>
+            <a class="post-title" href="{{ page.permalink }}">{{ page.title }}</a>
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%-d %B %Y") }}</time>
+            {% if page.description %}
             <p>{{ page.description }}</p>
-        </div>
-        {% endif %}
-        {% if page.taxonomies.tags %}
-        <div class="post-tags">
-            {% for tag in page.taxonomies.tags %}
-            <span class="tag">{{ tag }}</span>
-            {% endfor %}
-        </div>
-        {% endif %}
-    </article>
-    {% endfor %}
-</div>
-{% endif %}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</main>
 {% endblock content %}

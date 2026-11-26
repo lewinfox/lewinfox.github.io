@@ -1,0 +1,25 @@
+# Lewin Fox
+
+> Lewin Appleton-Fox (Lewin Fox) is a software developer in Queenstown, New Zealand. He builds software to solve business problems: apps, websites, whatever the job needs.
+
+- Most jobs start with something that isn't working, such as a spreadsheet that's got out of hand or a paper form that keeps going missing. What he builds depends on the problem.
+- Android and iOS apps, websites and web applications, and tidying up data and reporting.
+- Hosting and maintenance once things are live.
+- Over ten years in software and data, in finance, government and logistics, in New Zealand and the UK.
+- Happy to meet in person in the Queenstown area.
+- Every project is quoted individually.
+
+Contact: lewin.a.f@gmail.com
+
+## Pages
+
+- [Home](https://lewinfox.com/): overview
+- [Services](https://lewinfox.com/services/): what I build
+- [Portfolio](https://lewinfox.com/portfolio/): apps I've built, including Cloudbase (a flight instrument for paragliders) and Needle (a car diagnostics app)
+- [About](https://lewinfox.com/about/): background
+- [Blog](https://lewinfox.com/blog/): technical posts ([Atom feed](https://lewinfox.com/atom.xml))
+
+## Elsewhere
+
+- [GitHub](https://github.com/lewinfox): open-source work
+- [LinkedIn](https://www.linkedin.com/in/lewinfox)

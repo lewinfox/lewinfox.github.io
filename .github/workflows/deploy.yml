@@ -16,7 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: taiki-e/install-action@v2
         with:
-          tool: zola@0.19.2
+          # Keep in sync with ZOLA_VERSION in the Makefile
+          tool: zola@0.23.6
       - run: zola build
       - uses: actions/upload-pages-artifact@v3
         with:

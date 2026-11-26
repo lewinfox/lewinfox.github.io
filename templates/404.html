@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found | {{ config.extra.title }}{% endblock title %}
+{% block meta %}<meta name="robots" content="noindex">{% endblock meta %}
+{% block body_class %}landing photo-lookout{% endblock body_class %}
+
+{% block content %}
+<main class="landing-main">
+    <h1>Page not found</h1>
+    <p>Try the <a href="{{ get_url(path='/', trailing_slash=true) }}">home page</a>.</p>
+</main>
+{% endblock content %}
+
+{% block photo_credit %}
+<p class="photo-credit">Photo: <a href="{{ config.extra.photos.lookout.url }}">{{ config.extra.photos.lookout.credit }}</a></p>
+{% endblock photo_credit %}
