@@ -1,5 +1,5 @@
 +++
 title = "Blog"
-description = "Thoughts on data engineering, MLOps, and building reliable systems"
+description = "Notes on software, data engineering and building reliable systems."
 sort_by = "date"
 +++

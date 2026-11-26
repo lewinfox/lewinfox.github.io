@@ -1,0 +1,25 @@
+{#
+    Full-screen photo layout used by the homepage, Services, About and Contact.
+    Set the photo in the page's front matter:
+
+        [extra]
+        photo = "lake"    # one of the keys under [extra.photos] in config.toml
+#}
+{% extends "base.html" %}
+
+{% block title %}{% if section.title %}{{ section.title }} | {% endif %}{{ config.extra.title }}{% endblock title %}
+{% block description %}{% if section.description %}{{ section.description }}{% else %}{{ config.extra.description }}{% endif %}{% endblock description %}
+
+{% block body_class %}landing photo-{{ section.extra.photo | default(value="hero") }}{% endblock body_class %}
+
+{% block content %}
+<main class="landing-main">
+    {{ section.content | safe }}
+</main>
+{% endblock content %}
+
+{% block photo_credit %}
+{% set photo_key = section.extra.photo | default(value="hero") %}
+{% set photo = config.extra.photos[photo_key] %}
+<p class="photo-credit">Photo: <a href="{{ photo.url }}">{{ photo.credit }}</a></p>
+{% endblock photo_credit %}

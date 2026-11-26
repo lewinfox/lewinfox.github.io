@@ -1,6 +1,7 @@
 # --- Zola in Docker for GitHub Pages (docs/) ---
-# Update if/when you bump Zola (no 'latest' tag available)
-ZOLA_VERSION ?= v0.21.0
+# Update if/when you bump Zola (no 'latest' tag available).
+# Keep in sync with the version in .github/workflows/deploy.yml.
+ZOLA_VERSION ?= v0.23.6
 IMAGE        := ghcr.io/getzola/zola:$(ZOLA_VERSION)
 
 # Paths
