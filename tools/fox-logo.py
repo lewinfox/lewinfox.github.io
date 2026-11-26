@@ -13,8 +13,9 @@ def bez(p, t):
     dy = 3*u*u*(y1-y0) + 6*u*t*(y2-y1) + 3*t*t*(y3-y2)
     return x, y, dx, dy
 
-def brush(p, w, start=0.15, end=0.0, peak=0.45, n=28):
-    """Filled tapered stroke along a cubic. Width rises from start*w to w at `peak`, falls to end*w."""
+def brush(p, w, start=0.15, end=0.0, peak=0.45, n=28, round_end=False):
+    """Filled tapered stroke along a cubic. Width rises from start*w to w at `peak`, falls to end*w.
+    round_end finishes the stroke with a semicircle instead of a flat cut or a sharp point."""
     left, right = [], []
     for i in range(n+1):
         t = i/n
@@ -27,7 +28,15 @@ def brush(p, w, start=0.15, end=0.0, peak=0.45, n=28):
         nx, ny = -dy/L, dx/L
         h = w*k/2
         left.append((x+nx*h, y+ny*h)); right.append((x-nx*h, y-ny*h))
-    pts = left + right[::-1]
+    cap = []
+    if round_end:
+        # x, y, dx, dy, h still hold the values at the end of the stroke:
+        # sweep a semicircle round the tip, from the left edge to the right edge
+        a = math.atan2(dy, dx)
+        for j in range(1, 12):
+            th = a + math.pi/2 - math.pi*j/12
+            cap.append((x + h*math.cos(th), y + h*math.sin(th)))
+    pts = left + cap + right[::-1]
     return "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts) + " Z"
 
 def brush_profile(p, w, knots, n=48):
@@ -56,7 +65,7 @@ parts = [
   brush_profile([(30,36),(52,14),(86,42),(114,15)], 13,
                 [(0, 0.3), (0.22, 1.0), (0.5, 0.5), (0.8, 1.0), (1, 0.6)]),
   # neck and head, snout forward
-  brush([(108,19),(115,11),(126,8),(144,12)], 9, start=0.8, end=0.0, peak=0.3),
+  brush([(108,19),(115,11),(126,8),(143,12)], 9, start=0.8, end=0.22, peak=0.3, round_end=True),
   # ears, both pricked
   brush([(117,13),(118,8),(119,4),(121,1)], 5, start=1.0, end=0.0, peak=0.15),
   brush([(123,12),(125,8),(127,4),(130,2)], 5, start=1.0, end=0.0, peak=0.15),
