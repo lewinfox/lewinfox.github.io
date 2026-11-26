@@ -1,5 +1,6 @@
-# The URL the site will be built for
-base_url = "https://www.lewinfox.com"
+# The URL the site will be built for. This must match the custom domain set in
+# GitHub Pages (lewinfox.com; www.lewinfox.com redirects to it).
+base_url = "https://lewinfox.com"
 
 # Used by the Atom feed
 title = "Lewin Fox"

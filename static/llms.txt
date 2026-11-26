@@ -13,11 +13,11 @@ Contact: lewin.a.f@gmail.com
 
 ## Pages
 
-- [Home](https://www.lewinfox.com/): overview
-- [Services](https://www.lewinfox.com/services/): what I build
-- [Portfolio](https://www.lewinfox.com/portfolio/): apps I've built, including Cloudbase (a flight instrument for paragliders) and Needle (a car diagnostics app)
-- [About](https://www.lewinfox.com/about/): background
-- [Blog](https://www.lewinfox.com/blog/): technical posts ([Atom feed](https://www.lewinfox.com/atom.xml))
+- [Home](https://lewinfox.com/): overview
+- [Services](https://lewinfox.com/services/): what I build
+- [Portfolio](https://lewinfox.com/portfolio/): apps I've built, including Cloudbase (a flight instrument for paragliders) and Needle (a car diagnostics app)
+- [About](https://lewinfox.com/about/): background
+- [Blog](https://lewinfox.com/blog/): technical posts ([Atom feed](https://lewinfox.com/atom.xml))
 
 ## Elsewhere
 
