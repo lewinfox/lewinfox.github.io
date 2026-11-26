@@ -68,6 +68,50 @@ architecture. Core technologies there:
 Contains blog posts on technical topics likely to be of interest to people
 looking for software or data engineering help.
 
+## Tone of voice
+
+Applies to all site copy and blog posts. Based on the existing pages and the
+foodwebr release post (`content/blog/2025-10-01-foodwebr-1.0.0.md`).
+
+**Who's talking.** Me, in the first person ("I build...", "I'm happy to meet in
+person"). I'm a sole trader, so never "we", "our team" or a company voice.
+Address the reader as "you".
+
+**Plain and concrete.** Say what the thing is and what it does in ordinary
+words. Prefer a specific example to an abstract claim: "replacing a paper form
+or a spreadsheet with something your team can fill in on their phones" beats
+"streamlining your business processes". Real numbers where they exist
+("from $2,500 + GST").
+
+**Friendly, not salesy.** Warm and direct, like explaining something to a
+client over coffee. Confident about what I can do without hype. One clear call
+to action, stated simply ("Get in touch to discuss your needs"); low-key asks
+elsewhere ("If you find foodwebr useful, consider starring the repository").
+
+**Short.** Short sentences and short paragraphs. Landing pages are a heading
+and two or three paragraphs. Cut anything that doesn't tell the reader
+something new.
+
+**Show, don't tell (technical posts).** Lead with what the thing is and why
+you'd care, then get to something the reader can run. Code examples should be
+complete, copy-pasteable, and show their output where it helps. A typical
+shape: what it is → how to install or set it up → a minimal example → the
+more useful options → where to learn more.
+
+**Avoid:**
+
+- Stock openers and filler: "I'm excited to announce", "In today's
+  fast-paced world", "makes it easy/simple", "at a glance", "seamless",
+  "robust", "leverage", "unlock", "empower".
+- Buzzwords and jargon the reader hasn't asked for. If a technical term is
+  needed, use it plainly; don't stack them.
+- Bolded-label bullet lists ("**Easy visualization**: ...") as a substitute for
+  explaining. Use a list only for genuinely list-shaped things.
+- Exclamation marks, emoji, and overclaiming ("best-in-class", "cutting-edge").
+
+**Spelling.** New Zealand English ("organisation", "visualise", "colour").
+Keep the original spelling for code, package names and quoted output.
+
 ## Design principles
 
 The website should be as light as possible, content-first. Minimal JS, maximum

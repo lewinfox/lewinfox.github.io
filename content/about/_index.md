@@ -1,6 +1,6 @@
 +++
 title = "About"
-description = "Lewin Fox is a software and data developer based in Queenstown, New Zealand."
+description = "Lewin Fox is a software engineer based in Queenstown, New Zealand."
 template = "landing.html"
 
 [extra]
