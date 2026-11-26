@@ -1,5 +1,6 @@
 +++
 title = "ACC"
+draft = true  # not ready to publish; drafts are left out of the build
 date = 2024-01-15
 description = "Designing an MLOps pipeline"
 +++

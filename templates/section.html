@@ -1,8 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}{{ section.title }} | {{ config.extra.title }}{% endblock title %}
-{% block description %}{% if section.description %}{{ section.description }}{% else %}{{ config.extra.description }}{% endif %}{% endblock description %}
-
 {% block content %}
 <main class="reading-main">
     <h1>{{ section.title }}</h1>

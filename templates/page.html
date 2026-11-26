@@ -1,7 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }} | {{ config.extra.title }}{% endblock title %}
-{% block description %}{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}{% endblock description %}
+{# Structured data for blog posts, for search engines and LLMs #}
+{% block meta %}
+{% if page.date %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | json_encode | safe }},
+  {% if page.description %}"description": {{ page.description | json_encode | safe }},{% endif %}
+  "datePublished": "{{ page.date }}",
+  "dateModified": "{% if page.updated %}{{ page.updated }}{% else %}{{ page.date }}{% endif %}",
+  "url": "{{ page.permalink | safe }}",
+  "mainEntityOfPage": "{{ page.permalink | safe }}",
+  "image": "{{ get_url(path=config.extra.social_image) | safe }}",
+  "author": {
+    "@type": "Person",
+    "@id": "{{ get_url(path='/', trailing_slash=true) | safe }}#person",
+    "name": {{ config.extra.author | json_encode | safe }},
+    "url": "{{ get_url(path='/', trailing_slash=true) | safe }}"
+  }
+}
+</script>
+{% endif %}
+{% endblock meta %}
 
 {% block content %}
 <main class="reading-main">

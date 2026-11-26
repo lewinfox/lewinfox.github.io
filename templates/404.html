@@ -7,7 +7,7 @@
 {% block content %}
 <main class="landing-main">
     <h1>Page not found</h1>
-    <p>Looks like you've wandered off the track. Try the <a href="{{ get_url(path='/') }}">home page</a>.</p>
+    <p>Try the <a href="{{ get_url(path='/', trailing_slash=true) }}">home page</a>.</p>
 </main>
 {% endblock content %}
 

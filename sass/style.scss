@@ -12,6 +12,8 @@ $button-text: #10232b;
 $button-hover: #f0e6d6;
 $serif: "Fraunces", Georgia, serif;
 $sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+// Space between the page content and the left/right screen edges
+$gutter: clamp(1.25rem, 5vw, 4rem);
 $mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
 
 // Fonts: self-hosted, SIL OFL (see /fonts/OFL-*.txt)
@@ -49,7 +51,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  padding: 0 $gutter;
 }
 
 a {
@@ -246,8 +248,14 @@ p {
   padding-top: 30svh;
   max-width: 38rem;
 
-  p {
+  p,
+  li {
     text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  ul {
+    padding-left: 1.4rem;
+    margin: 0 0 1em;
   }
 }
 
@@ -437,6 +445,46 @@ p {
   margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid $rule;
+}
+
+// --- Portfolio gallery: a row of phone screenshots -----------------------------
+
+// All the screenshots show at once, in one row that extends to the right of
+// the text column. On phones there isn't room, so it becomes a strip you swipe
+// sideways, sized so the next screenshot is always cut off at the screen edge
+// to show there's more.
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 14rem));
+  gap: 1rem;
+  width: min(74rem, calc(100vw - 2 * #{$gutter} - 1.5rem));
+  margin: 1.5rem 0 2.5rem;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border: 1px solid $rule;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .gallery {
+    display: flex;
+    width: auto;
+    margin-right: calc(-1 * #{$gutter});
+    padding: 0 #{$gutter} 0.75rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+
+    a {
+      flex: none;
+      width: 42vw;
+      scroll-snap-align: start;
+    }
+  }
 }
 
 // --- Small screens ------------------------------------------------------------

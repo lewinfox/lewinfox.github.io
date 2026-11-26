@@ -1,0 +1,26 @@
+{#
+    A reusable snippet ("component") that can be used in Markdown content.
+    Each component has its own file in templates/components/.
+
+    gallery: a row of app screenshots (a swipeable strip on phones). Usage in a
+    Markdown file:
+
+        {{ <gallery app="needle" shots={[
+          "1-fuel-gauge | Fuel gauge showing 58% full and 391 km of range",
+          "2-live-sensors | Live engine sensor readings",
+        ]} /> }}
+
+    Each entry is "<file name without .png> | <description of the screenshot>".
+    The PNGs live in static/img/portfolio/<app>/. Zola makes the small WebP
+    versions at build time; clicking a screenshot opens the original.
+#}
+{% component gallery(app, shots) %}
+<div class="gallery">
+    {% for shot in shots -%}
+    {% set parts = shot | split(pat=" | ") -%}
+    {% set file = "img/portfolio/" ~ app ~ "/" ~ parts[0] ~ ".png" -%}
+    {% set thumb = resize_image(path=file, width=480, op="fit_width", format="webp", quality=85) -%}
+    <a href="{{ get_url(path=file) | safe }}"><img src="{{ thumb.url | safe }}" alt="{{ parts[1] }}" width="{{ thumb.width }}" height="{{ thumb.height }}" loading="lazy"></a>
+    {% endfor -%}
+</div>
+{% endcomponent gallery %}
